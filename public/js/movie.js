@@ -19,7 +19,7 @@ $(document).ready(function () {
   let scifiCount = 0;
   let animalsCount = 0;
   let seriesCount = 0;
-  let otherCount = 0;
+  let musicalCount = 0;
 
   // const chart1Area = $('#myBubbleChart1');
   // const chart2Area = $('#myBubbleChart2');
@@ -134,26 +134,58 @@ $(document).ready(function () {
       for (let i = 0; i < data.length; i++) {
         console.log("data[i].genre: ", data[i].genre);
         //Count genres
-        switch (data[i].genre) {
-          case "comedy":
-            comedyCount++;
-            break;
-          case "action":
-            actionCount++;
-            break;
-          case "scifi":
-            scifiCount++;
-            break;
-          case "animals":
-            animalsCount++;
-            break;
-          case "series":
-            seriesCount++;
-            break;
-          case "other":
-            otherCount++;
-            break;
+
+        if (data[i].genre.includes('comedy')) {
+          comedyCount++;
+          console.log("comedyCount: ", comedyCount);
         }
+
+        if (data[i].genre.includes('action')) {
+          actionCount++;
+          console.log("actionCount: ", actionCount);
+        }
+
+        if (data[i].genre.includes('scifi')) {
+          scifiCount++;
+          console.log("scifiCount: ", scifiCount);
+        }
+
+        if (data[i].genre.includes('animals')) {
+          animalsCount++;
+          console.log("animalsCount: ", animalsCount);
+        }
+
+        if (data[i].genre.includes('series')) {
+          seriesCount++;
+          console.log("seriesCount: ", seriesCount);
+        }
+
+        if (data[i].genre.includes('musical')) {
+          musicalCount++;
+          console.log("musicalCount: ", musicalCount);
+        }
+
+        // switch (data[i].genre) {
+        //   case "comedy":
+        //     comedyCount++;
+        //     break;
+        //   case "action":
+        //     actionCount++;
+        //     break;
+        //   case "scifi":
+        //     scifiCount++;
+        //     break;
+        //   case "animals":
+        //     animalsCount++;
+        //     break;
+        //   case "series":
+        //     seriesCount++;
+        //     break;
+        //   case "musical":
+        //     musicalCount++;
+        //     break;
+        // }
+
         //Build table rows
         rowsToAdd.push(createmovieRow(data[i], i));
         if ((i + 1) == data.length) {
@@ -165,14 +197,14 @@ $(document).ready(function () {
       console.log("scifiCount: ", scifiCount);
       console.log("animalsCount: ", animalsCount);
       console.log("seriesCount: ", comedyCount);
-      console.log("otherCount: ", otherCount);
+      console.log("musicalCount: ", musicalCount);
 
       chart1Data.push({ x: "comedy", y: comedyCount });
       chart1Data.push({ x: actionCount, y: "action" });
       chart1Data.push({ x: scifiCount, y: "scifi" });
       chart1Data.push({ x: animalsCount, y: "animals" });
       chart1Data.push({ x: seriesCount, y: "series" });
-      chart1Data.push({ x: otherCount, y: "other" });
+      chart1Data.push({ x: musicalCount, y: "musical" });
 
       console.log("rowsToAdd: ", rowsToAdd);
 
@@ -213,7 +245,7 @@ $(document).ready(function () {
       type: 'horizontalBar',
       // type: 'bar',
       data: {
-        labels: ["Comedy", "Action/Adventure", "Sci-Fi", "Animals", "Part of a Series", "Other"],
+        labels: ["Comedy", "Action/Adventure", "Sci-Fi", "Animals", "Part of a Series", "Musical"],
         datasets: [
           {
             label: "Movie Genre Count",
@@ -234,7 +266,7 @@ $(document).ready(function () {
               'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 1,
-            data: [comedyCount, actionCount, scifiCount, animalsCount, seriesCount, otherCount],
+            data: [comedyCount, actionCount, scifiCount, animalsCount, seriesCount, musicalCount],
           }
         ]
       },
