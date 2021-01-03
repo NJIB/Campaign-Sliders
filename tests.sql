@@ -1,0 +1,5 @@
+SHOW TABLES;
+
+DESCRIBE Movies;
+
+SELECT * FROM Movies;
