@@ -13,7 +13,7 @@ const db = require('./models');
 // Sets up the Express App
 // =============================================================
 const app = express();
-// const PORT = process.env.PORT || 8080;
+
 const PORT = process.env.PORT || 8082;
 
 
@@ -28,6 +28,8 @@ app.use(express.static('public'));
 // ===============================
 require('./routes/html-routes')(app);
 require('./routes/movie-api-routes')(app);
+// require("./call_omdb.js")(app);
+// require("./routes/omdb-api-routes.js")(app);
 
 // Syncing our sequelize models Starting our Express app
 // =============================================================

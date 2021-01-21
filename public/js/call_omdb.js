@@ -1,15 +1,15 @@
 function call_omdb(movie) {
 
     // For writing to text file
-    let printList = [];
-    var textOutput = require("./writeToFile.js");
+    // let printList = [];
+    // var textOutput = require("./writeToFile.js");
 
     // Include the axios npm package (Don't forget to run "npm install axios" in this folder first!)
     const axios = require('axios');
 
-    if (movie === '') {
-        movie = 'Mr. Nobody';
-    }
+    // if (movie === '') {
+    //     movie = 'Mr. Nobody';
+    // }
 
     // Constructing a queryURL using the movie name
     let queryURL = 'http://www.omdbapi.com/?t=' + encodeURIComponent(movie) + '&y=&plot=short&tomatoes=true&apikey=trilogy';
@@ -19,7 +19,7 @@ function call_omdb(movie) {
         function (response) {
 
             //Object to hold information to be written to text file
-            let logFile = {};
+            // let logFile = {};
 
             console.log('')
             console.log(`Movies found matching ${movie} :`);
@@ -58,13 +58,13 @@ function call_omdb(movie) {
             logFile.line8 =(`The movie's stars the following actor(s): ${response.data.Actors}`);
 
             console.log('')
-            logFile.line9 =('')
+            // logFile.line9 =('')
 
             console.log('==========================================================')
-            logFile.line10 =('==========================================================')
+            // logFile.line10 =('==========================================================')
 
-            printList.push(logFile);
-            textOutput.logOutput(printList, 0);
+            // printList.push(logFile);
+            // textOutput.logOutput(printList, 0);
         }
 
     ).catch(function (error) {

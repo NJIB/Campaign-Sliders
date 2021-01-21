@@ -1,6 +1,7 @@
 $(document).ready(function () {
+
   // Getting references to the name input and movie container, as well as the table body
-  const movieDate = $('#movie-date');
+  // const movieDate = $('#movie-date');
   const movieInput = $('#movie-description');
   const chosenbyInput = $('#chosenby-description');
   const commentsInput = $('#comments-description');
@@ -39,12 +40,14 @@ $(document).ready(function () {
   function handleMovieFormSubmit(event) {
     event.preventDefault();
 
-    console.log("movieDate: ", movieDate.val());
-
     // Don't do anything if the name fields hasn't been filled out
     if (!movieInput.val().trim().trim()) {
       return;
     }
+
+    // // Make OMDB api call
+    // call_omdb(movieInput.val().trim());
+    // movieSearch.omdb(movieInput);
 
     console.log("movieInput: ", movieInput.val().trim());
 
@@ -60,8 +63,8 @@ $(document).ready(function () {
     };
 
     const movieData = {
-    //   date: movieDate
-    //     .val(),
+      //   date: movieDate
+      //     .val(),
       movie: movieInput
         .val()
         .trim(),
@@ -84,7 +87,7 @@ $(document).ready(function () {
   // A function for creating an movie. Calls getmovies upon completion
   function upsertmovie(movieData) {
     $.post('/api/movies', movieData)
-    .then(getmovies);
+      .then(getmovies);
   }
 
   // Function for creating a new list row for movies
@@ -125,8 +128,8 @@ $(document).ready(function () {
       const rowsToAdd = [];
 
       // for (let i = 0; i < data.length; i++) {
-        for (let i = 0; i < movieSort.length; i++) {
-          movieSort.sort( compare );
+      for (let i = 0; i < movieSort.length; i++) {
+        movieSort.sort(compare);
       }
 
       console.log('movieSort (sorted): ', movieSort);
@@ -222,8 +225,8 @@ $(document).ready(function () {
     movieContainer.children('.alert').remove();
     if (rows.length) {
       movieList
-      // .find('thead')
-      // .find('tbody')
+        // .find('thead')
+        // .find('tbody')
         .append(rows);
     }
     //   else {
@@ -281,8 +284,8 @@ $(document).ready(function () {
             },
             ticks: {
               beginAtZero: true,
-                min: 0,
-                stepSize: 1
+              min: 0,
+              stepSize: 1
             },
           }],
           yAxes: [{
@@ -321,9 +324,8 @@ $(document).ready(function () {
     })
       .then(getmovies);
 
-      // window.location.reload();
-      location.reload();
-
+    // window.location.reload();
+    location.reload();
   }
 
   function handleCheckboxClick(e) {
@@ -352,14 +354,37 @@ $(document).ready(function () {
     console.log("movieChangeLog: ", movieChangeLog);
   };
 
-  function compare( a, b ) {
-    if ( a.date < b.date ){
+  function compare(a, b) {
+    if (a.date < b.date) {
       return -1;
     }
-    if ( a.date > b.date ){
+    if (a.date > b.date) {
       return 1;
     }
     return 0;
+  }
+
+  function call_omdb(movie) {
+
+    // Constructing a queryURL using the movie name
+    let queryURL = 'http://www.omdbapi.com/?t=' + encodeURIComponent(movie) + '&y=&plot=short&tomatoes=true&apikey=trilogy';
+
+    console.log("queryURL: ", queryURL);
+    // Then run a request with axios to the OMDB API with the movie specified
+
+  axios.get(queryURL)
+      .then(function (response) {
+        console.log(response);
+      });
+    // const id = movie;
+    // console.log("id: ", id);
+
+    // $.axios({
+    //   method: 'GET',
+    //   // url: '/api/omdb/' + id,
+    //   url: queryURL,
+    // })
+    // .then(getmovies);
   }
 
 });
