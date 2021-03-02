@@ -12,6 +12,10 @@ button.submit {
   float: right;
 }
 
+.box {
+  margin-bottom: 200px;
+}
+
 .col-counter {
   font-size: 20pt;
   font-weight: bold;
