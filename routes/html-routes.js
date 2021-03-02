@@ -14,7 +14,7 @@ module.exports = function (app) {
   // THIS IS THE START-UP ROUTING
   // index route loads view.html
   app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public/movie-manager.html'));
+    res.sendFile(path.join(__dirname, '../public/slider-manager.html'));
   });
 
   // subsegment route loads subsegment.html
@@ -22,8 +22,8 @@ module.exports = function (app) {
   //   res.sendFile(path.join(__dirname, '../public/subsegment.html'));
   // });
 
-  // segments route loads movie-manager.html
+  // segments route loads slider-manager.html
   app.get('/movies', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public/movie-manager.html'));
+    res.sendFile(path.join(__dirname, '../public/slider-manager.html'));
   });
 };
