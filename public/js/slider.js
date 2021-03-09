@@ -23,7 +23,7 @@ $(document).ready(function () {
   // let musicalCount = 0;
   let vertSlideVal1 = 1;
   let horizSlideVal1 = 1;
-  let radiusSlideVal1 = 10;
+  let radiusSlideVal1 = 0;
   let vertSlideVal2 = 1;
   let horizSlideVal2 = 1;
   let radiusSlideVal2 = 10;
@@ -33,6 +33,7 @@ $(document).ready(function () {
   let vertSlideVal4 = 1;
   let horizSlideVal4 = 1;
   let radiusSlideVal4 = 10;
+  let buscontextScore = '';
   
   let chart1Data = [{
     x: 1,
@@ -43,33 +44,7 @@ $(document).ready(function () {
   // an movie
   $(document).on('change', '.slider', handleSliderChange);
 
-  // Getting the initial list of movies
-  renderChart('#myScatterChart1', chart1Data, horizSlideVal1, vertSlideVal1, radiusSlideVal1);
-  renderChart('#myScatterChart2', chart1Data, horizSlideVal2, vertSlideVal2, radiusSlideVal2);
-  renderChart('#myScatterChart3', chart1Data, horizSlideVal3, vertSlideVal3, radiusSlideVal3);
-  renderChart('#myScatterChart4', chart1Data, horizSlideVal4, vertSlideVal4, radiusSlideVal4);
-
   renderBubbleChart1('#BubbleChart1', chart1Data, horizSlideVal1, vertSlideVal1, radiusSlideVal1);
-
-
-
-  $('#ex1').slider({
-    formatter: function (value) {
-      return 'Current value: ' + value;
-    }
-  });
-
-  $(".ex1").slider({
-    min: 1,
-    max: 3,
-    value: 1,
-    tooltip_position: 'bottom',
-    orientation: 'vertical',
-    reversed: true,
-    ticks: [1, 2, 3],
-    ticks_labels: ['Temporary', 'Prolonged', 'Permanent'],
-  });
-
 
   $("#q1-1").slider({
     min: 0,
@@ -96,7 +71,7 @@ $(document).ready(function () {
   $("#q1-3").slider({
     min: 0,
     max: 100,
-    value: 10,
+    value: 0,
     orientation: 'vertical',
     reversed: true,
     tooltip_position: 'bottom',
@@ -126,48 +101,21 @@ $(document).ready(function () {
     ticks_labels: ['Unchanged', 'Local Changes', 'Regional Changes', '0 -> 10%', '10 -> 25%', '>25%'],
   });
 
-  // $("#ex3b").slider({
-  //   min: 1,
-  //   max: 5,
-  //   value: 1,
-  //   orientation: 'vertical',
-  //   reversed: true,
-  //   ticks: [1, 3, 5],
-  //   ticks_labels: ['Unchanged', 'Modified', 'New'],
-  //   tooltip_position: 'left'
-  // });
-
-  // $("#ex4a").slider({
-  //   min: 1,
-  //   max: 5,
-  //   value: 1,
-  //   tooltip_position: 'bottom',
-  //   ticks: [1, 3, 5],
-  //   ticks_labels: ['Unchanged', 'Modified', 'New'],
-  // });
-
-  // $("#ex4b").slider({
-  //   min: 1,
-  //   max: 5,
-  //   value: 1,
-  //   orientation: 'vertical',
-  //   reversed: true,
-  //   ticks: [1, 3, 5],
-  //   ticks_labels: ['Unchanged', 'Modified', 'New'],
-  //   tooltip_position: 'left'
-  // });
-
-
-
   function handleSliderChange(event) {
     event.preventDefault();
 
-    console.log('$(this): ', $(this));
+    // console.log('$(this): ', $(this));
 
     $('#q1-1').slider({
       // Shows value on the tooltip
       formatter: function (value) {
           vertSlideVal1 = value;
+
+          // Expand magnitude bubble
+          if (radiusSlideVal1 == 0){
+            radiusSlideVal1 = 10;
+          };
+
         return value;
       }
     });
@@ -175,6 +123,12 @@ $(document).ready(function () {
     $('#q1-2').slider({
       formatter: function (value) {
         horizSlideVal1 = value;
+
+          // Expand magnitude bubble
+          if (radiusSlideVal1 == 0){
+            radiusSlideVal1 = 10;
+          };
+          
         return value;
       }
     });
@@ -182,23 +136,32 @@ $(document).ready(function () {
     $('#q1-3').slider({
       formatter: function (value) {
         radiusSlideVal1 = value;
-        console.log("radiusSlideVal1: ", radiusSlideVal1);
+        // console.log("radiusSlideVal1: ", radiusSlideVal1);
         return value;
       }
     });
 
+    if(horizSlideVal1>50) {
+      const horizSlideScore = "H";
+      buscontextScore=horizSlideScore;
+    } else {
+      const horizSlideScore = "L";
+      buscontextScore=horizSlideScore;
+    };
 
-    // console.log("vertSlideVal: ", vertSlideVal);
-    // console.log("horizSlideVal: ", horizSlideVal);
+    if(vertSlideVal1<50){
+      const vertSlideScore = "L";
+      buscontextScore= buscontextScore+vertSlideScore;
+    } else {
+      const vertSlideScore = "H";
+      buscontextScore= buscontextScore+vertSlideScore;
+    };
+    
+    //Populate div
+    $('#bus-context-notes').empty();
+    $('#bus-context-notes').append(buscontextScore);
 
-    // renderChart('#myScatterChart1', chart1Data, horizSlideVal1, vertSlideVal1);
     renderBubbleChart1('#BubbleChart1', chart1Data, horizSlideVal1, vertSlideVal1, radiusSlideVal1);
-
-
-    // mySlider
-    //   .slider('setValue', 5);
-    // Call a method on the slider
-    //   console.log("*** mySlider.slider('getValue'): ", mySlider.slider('getValue'), " ***");
   }
 
   // This creates the display object for the Revenue Bubble Chart(s)

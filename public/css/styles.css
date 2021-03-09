@@ -12,6 +12,11 @@ button.submit {
   float: right;
 }
 
+.campaign-container {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
 .box {
   margin-bottom: 200px;
 }
