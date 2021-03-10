@@ -34,7 +34,8 @@ $(document).ready(function () {
   let horizSlideVal4 = 1;
   let radiusSlideVal4 = 10;
   let buscontextScore = '';
-  
+  let buscontextNotes = [];
+
   let chart1Data = [{
     x: 1,
     y: 1
@@ -109,12 +110,12 @@ $(document).ready(function () {
     $('#q1-1').slider({
       // Shows value on the tooltip
       formatter: function (value) {
-          vertSlideVal1 = value;
+        vertSlideVal1 = value;
 
-          // Expand magnitude bubble
-          if (radiusSlideVal1 == 0){
-            radiusSlideVal1 = 10;
-          };
+        // Expand magnitude bubble
+        if (radiusSlideVal1 == 0) {
+          radiusSlideVal1 = 10;
+        };
 
         return value;
       }
@@ -124,11 +125,11 @@ $(document).ready(function () {
       formatter: function (value) {
         horizSlideVal1 = value;
 
-          // Expand magnitude bubble
-          if (radiusSlideVal1 == 0){
-            radiusSlideVal1 = 10;
-          };
-          
+        // Expand magnitude bubble
+        if (radiusSlideVal1 == 0) {
+          radiusSlideVal1 = 10;
+        };
+
         return value;
       }
     });
@@ -141,28 +142,51 @@ $(document).ready(function () {
       }
     });
 
-    if(horizSlideVal1>50) {
+    renderBubbleChart1('#BubbleChart1', chart1Data, horizSlideVal1, vertSlideVal1, radiusSlideVal1);
+
+    if (horizSlideVal1 > 50) {
       const horizSlideScore = "H";
-      buscontextScore=horizSlideScore;
+      buscontextScore = horizSlideScore;
     } else {
       const horizSlideScore = "L";
-      buscontextScore=horizSlideScore;
+      buscontextScore = horizSlideScore;
     };
 
-    if(vertSlideVal1<50){
+    if (vertSlideVal1 < 50) {
       const vertSlideScore = "L";
-      buscontextScore= buscontextScore+vertSlideScore;
+      buscontextScore = buscontextScore + vertSlideScore;
     } else {
       const vertSlideScore = "H";
-      buscontextScore= buscontextScore+vertSlideScore;
+      buscontextScore = buscontextScore + vertSlideScore;
     };
-    
+
+    switch (buscontextScore) {
+      case "LL":
+        buscontextNotes.push("<p>&#9713 Localized disruption + temporary time frame -> Campaign likely still sound; Local level response sufficient.</p>");
+        break;
+
+      case "LH":
+        buscontextNotes.push("<p>&#9712 Widespread disruption + temporary time frame -> Overall campaign likely still sound; Programmatic response required to address market disruption.</p>");
+        break;
+
+      case "HL":
+        buscontextNotes.push("<p>&#9714 Localized disruption + prolonged time frame -> Campaign in some markets may require attention; Consider regional adjustments.</p>");
+
+      case "HH":
+        buscontextNotes.push("<p>&#9715 Widespread disruption + prolonged time frame -> Campaign likely misaligned from market needs; Conduct full campaign review.</p>");
+        break;
+    };
+
+    const notes = buscontextNotes[buscontextNotes.length - 1];
+    console.log("notes: ", notes);
+
     //Populate div
     $('#bus-context-notes').empty();
-    $('#bus-context-notes').append(buscontextScore);
+    $('#bus-context-notes').append(notes);
 
-    renderBubbleChart1('#BubbleChart1', chart1Data, horizSlideVal1, vertSlideVal1, radiusSlideVal1);
-  }
+    buscontextNotes.length = 0;
+    console.log("buscontextNotes:", buscontextNotes);
+  };
 
   // This creates the display object for the Revenue Bubble Chart(s)
   function renderBubbleChart1(chartId, chartData, horizSlideVal, vertSlideVal, radiusSlideVal) {

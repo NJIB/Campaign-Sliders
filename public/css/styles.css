@@ -77,6 +77,11 @@ button.submit {
   z-index: -1;
 }
 
+#bus-context-notes{
+  margin-left: 70px;
+  font-size: 20pt;
+}
+
 form#cms {
   margin-top: 50px;
   width: 80%;
@@ -659,5 +664,6 @@ text-align: center;
 }
 
 canvas {
+  /* background-image: url(../images/Graph1_Annotations.jpg); */
   background-color: rgba(176, 196, 222, 0.5);
 }
