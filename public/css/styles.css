@@ -47,7 +47,7 @@ button.submit {
   height: 100px;
   font-size: 12pt;
   font-weight: bold;
-  text-align: justify;
+  text-align: left;
   margin: 5px;
 }
 
@@ -77,10 +77,25 @@ button.submit {
   z-index: -1;
 }
 
-#bus-context-notes{
+.notes-row {
+margin: 75px;
+}
+
+#bus-context-notes1{
   margin-left: 70px;
   font-size: 20pt;
 }
+
+#bus-context-notes2{
+  margin-left: 70px;
+  font-size: 20pt;
+}
+
+#bus-context-notes3{
+  margin-left: 70px;
+  font-size: 20pt;
+}
+
 
 form#cms {
   margin-top: 50px;
