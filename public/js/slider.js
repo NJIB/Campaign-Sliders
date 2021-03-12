@@ -106,6 +106,40 @@ $(document).ready(function () {
     ticks_labels: ['Unchanged', 'Local Changes', 'Regional Changes', '0 -> 10%', '10 -> 25%', '>25%'],
   });
 
+  $("#q2-1").slider({
+    min: 0,
+    max: 100,
+    value: 0,
+    orientation: 'vertical',
+    reversed: true,
+    tooltip_position: 'bottom',
+    ticks: [0, 34, 67, 100],
+    ticks_labels: ['No Change', 'Moderate', 'Significant', 'Major'],
+  });
+
+  $("#q2-2").slider({
+    min: 0,
+    max: 100,
+    value: 0,
+    orientation: 'vertical',
+    reversed: true,
+    ticks: [0, 34, 67, 100],
+    ticks_labels: ['No Change', 'New Influencers', 'New Decision Makers', 'New Buying Groups'],
+    tooltip_position: 'left'
+  });
+
+  $("#q2-3").slider({
+    min: 0,
+    max: 100,
+    value: 0,
+    orientation: 'vertical',
+    reversed: true,
+    tooltip_position: 'bottom',
+    ticks: [0, 34, 67, 100],
+    ticks_labels: ['No Change', 'Moderate', 'Significant', 'Major'],
+  });
+
+
   function handleSliderChange(event) {
     event.preventDefault();
 
@@ -162,6 +196,42 @@ $(document).ready(function () {
       }
     });
 
+    $('#q2-1').slider({
+      // Shows value on the tooltip
+      formatter: function (value) {
+        vertSlideVal2 = value;
+
+        // Expand magnitude bubble
+        if (radiusSlideVal2 == 0) {
+          radiusSlideVal2 = 10;
+        };
+
+        return value;
+      }
+    });
+
+    $('#q2-2').slider({
+      formatter: function (value) {
+        horizSlideVal2 = value;
+
+        // Expand magnitude bubble
+        if (radiusSlideVal2 == 0) {
+          radiusSlideVal2 = 10;
+        };
+
+        return value;
+      }
+    });
+
+    $('#q2-3').slider({
+      formatter: function (value) {
+        radiusSlideVal2 = value;
+        // console.log("radiusSlideVal2: ", radiusSlideVal2);
+        return value;
+      }
+    });
+
+
     renderBubbleChart1('#BubbleChart1', chart1Data, horizSlideVal1, vertSlideVal1, radiusSlideVal1);
 
     if (horizSlideVal1 > 50) {
@@ -204,14 +274,14 @@ $(document).ready(function () {
       pace1Notes = "<p></p>"
     } else if (paceSlideVal1 < 50) {
       pace1Notes = "<p> &#9655 Slow to steady pace of change. Gradual adaptation / evolution of campaign advisable. </p>"
-    } else if (paceSlideVal1 > 49){
+    } else if (paceSlideVal1 > 49) {
       pace1Notes = "<p> &#9655 &#9655 Rapid change in the campaign environment. Immediate changes to campaign focus required. </p>"
     };
 
     //Load comment for pace slider
     if (goalsSlideVal1 == 0) {
       goals1Notes = "<p></p>"
-    } else if (goalsSlideVal1 > 0  && goalsSlideVal1 < 25) {
+    } else if (goalsSlideVal1 > 0 && goalsSlideVal1 < 25) {
       goals1Notes = "<p> &#9678 Limited impact on business goals. Minor adjustments to campaign may suffice, depending on other criteria. </p>"
     } else {
       goals1Notes = "<p> &#9651 Business goals have changed. Campaign goals will also be impacted, along with other campaign elements. </p>"
