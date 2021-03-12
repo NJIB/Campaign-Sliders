@@ -49,7 +49,28 @@ $(document).ready(function () {
   // an movie
   $(document).on('change', '.slider', handleSliderChange);
 
-  renderBubbleChart1('#BubbleChart1', chart1Data, horizSlideVal1, vertSlideVal1, radiusSlideVal1);
+  renderBubbleChart(
+    '#BubbleChart1',
+    chart1Data,
+    horizSlideVal1,
+    vertSlideVal1,
+    radiusSlideVal1,
+    'Business Context',
+    'Temporary    ----------   TIME FRAME   ----------    Permanent',
+    'Local    --------------   SCOPE   --------------    Global'
+  );
+
+  renderBubbleChart(
+    '#BubbleChart2',
+    chart1Data,
+    horizSlideVal2,
+    vertSlideVal2,
+    radiusSlideVal2,
+    'Audience Alignment',
+    'Temporary    ----------   TIME FRAME   ----------    Permanent',
+    'Local    --------------   SCOPE   --------------    Global'
+  );
+
 
   $("#q1-1").slider({
     min: 0,
@@ -231,8 +252,30 @@ $(document).ready(function () {
       }
     });
 
+    renderBubbleChart(
+      '#BubbleChart1',
+      chart1Data,
+      horizSlideVal1,
+      vertSlideVal1,
+      radiusSlideVal1,
+      'Business Context',
+      'Temporary    ----------   TIME FRAME   ----------    Permanent',
+      'Local    --------------   SCOPE   --------------    Global'
+    );
 
-    renderBubbleChart1('#BubbleChart1', chart1Data, horizSlideVal1, vertSlideVal1, radiusSlideVal1);
+    renderBubbleChart(
+      '#BubbleChart2',
+      chart1Data,
+      horizSlideVal2,
+      vertSlideVal2,
+      radiusSlideVal2,
+      'Audience Alignment',
+      'Temporary    ----------   TIME FRAME   ----------    Permanent',
+      'Local    --------------   SCOPE   --------------    Global'
+    );
+
+  
+    // renderBubbleChart('#BubbleChart1', chart1Data, horizSlideVal1, vertSlideVal1, radiusSlideVal1, 'Temporary    ----------   TIME FRAME   ----------    Permanent', 'Local    --------------   SCOPE   --------------    Global');
 
     if (horizSlideVal1 > 50) {
       const horizSlideScore = "H";
@@ -306,7 +349,7 @@ $(document).ready(function () {
   };
 
   // This creates the display object for the Revenue Bubble Chart(s)
-  function renderBubbleChart1(chartId, chartData, horizSlideVal, vertSlideVal, radiusSlideVal) {
+  function renderBubbleChart(chartId, chartData, horizSlideVal, vertSlideVal, radiusSlideVal, graphTitle, xlabelString, ylabelString) {
 
     var ctx = $(chartId);
     // console.log("ChartId", chartId);
@@ -315,7 +358,7 @@ $(document).ready(function () {
       type: 'bubble',
       data: {
         "datasets": [{
-          label: "Business Context",
+          label: graphTitle,
           data: [{
             x: horizSlideVal,
             y: vertSlideVal,
@@ -331,7 +374,8 @@ $(document).ready(function () {
           xAxes: [{
             scaleLabel: {
               display: true,
-              labelString: 'Temporary    ----------   TIME FRAME   ----------    Permanent',
+              // labelString: 'Temporary    ----------   TIME FRAME   ----------    Permanent',
+              labelString: xlabelString,
             },
             type: 'linear',
             position: 'bottom',
@@ -346,7 +390,8 @@ $(document).ready(function () {
           yAxes: [{
             scaleLabel: {
               display: true,
-              labelString: 'Local    --------------   SCOPE   --------------    Global',
+              // labelString: 'Local    --------------   SCOPE   --------------    Global',
+              labelString: ylabelString,
             },
             ticks: {
               // labels: ['Part of a Country', 'Single Country/MU', 'Single Region', 'Multiple Regions', 'Global'],
