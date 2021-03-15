@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta charset="UTF-8">
     <title>Campaign Sliders</title>
     <!-- Latest compiled and minified CSS & JS -->
@@ -36,38 +38,44 @@
     <!-- <div class="container"> -->
     <div class="campaign-container">
         <div class="box">
-            <div class="row">
-                <div class="section-header">1. Business Context</div>
-            </div>
-            <div class="row">
-                <div class="col-8">
+            <div class="col-12">
+                <div class="row">
+                    <!-- <div class="col-3 nbcol"> -->
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 nbcol">
 
-                    <div class="row">
-
-                        <div class="col-1">
+                        <!-- <div class="col-4 nbcol"> -->
+                        <div class="row">
+                            <div class="section-header">1. Business Context</div>
+                        </div>
+                        <div class="row">
+                            <canvas id="BubbleChart1" width="150" height="150"></canvas>
+                            <div class="graph-annotations">
+                                <img src="../images/Graph1_Annotations.jpg" height="350" width="380" />
+                            </div>
                         </div>
 
-                        <div class="col-2">
+                        <div class="row">
                             <div class="row">
-                                <div class="col-counter">1</div>
-                            </div>
+                                <div class="col-4">
+                                    <!-- <div class="row">
+                                        <div class="col-counter">1</div>
+                                    </div> -->
 
-                            <div class="row">
-                                <div class="col-title">Scope</div>
-                            </div>
+                                    <div class="row">
+                                        <div class="col-title">Scope</div>
+                                    </div>
 
-                            <div class="row">
-                                <div class="col-question">
-                                    Scope / breadth of disruption
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-slider">
-                                    <!-- <input id="ex1b" type="text" /> -->
-                                    <input id="q1-1" type="text" />
-                                </div>
-                            </div>
-                            <!-- <div class="row">
+                                    <!-- <div class="row">
+                                        <div class="col-question">
+                                            Scope / breadth of disruption
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                        <div class="col-slider">
+                                            <input id="q1-1" type="text" />
+                                        </div>
+                                    </div>
+                                    <!-- <div class="row">
                                 <div class="col-weighting">
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" placeholder="10"
@@ -76,29 +84,28 @@
                                     </div>
                                 </div>
                             </div> -->
-                        </div>
-
-                        <div class="col-2">
-                            <div class="row">
-                                <div class="col-counter">2</div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-title">Time Frame</div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-question">
-                                    Time frame of disruption
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-slider">
-                                    <!-- <input id="ex1b" type="text" /> -->
-                                    <input id="q1-2" type="text" />
-                                </div>
-                            </div>
-                            <!-- <div class="row">
+
+                                <div class="col-4">
+                                    <!-- <div class="row">
+                                        <div class="col-counter">2</div>
+                                    </div> -->
+
+                                    <div class="row">
+                                        <div class="col-title">Time Frame</div>
+                                    </div>
+
+                                    <!-- <div class="row">
+                                        <div class="col-question">
+                                            Time frame of disruption
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                        <div class="col-slider">
+                                            <input id="q1-2" type="text" />
+                                        </div>
+                                    </div>
+                                    <!-- <div class="row">
                                 <div class="col-weighting">
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" placeholder="10"
@@ -107,316 +114,529 @@
                                     </div>
                                 </div>
                             </div> -->
-                        </div>
-
-                        <div class="col-2">
-                            <div class="row">
-                                <div class="col-counter">3</div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-title">Magnitude</div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-question">
-                                    Magnitude of disruption to market
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-slider">
-                                    <!-- <input id="ex1b" type="text" /> -->
-                                    <input id="q1-3" type="text" />
-                                </div>
-                            </div>
-                            <!-- <div class="row">
-                                <div class="col-weighting">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="10"
-                                            aria-label="q1-3 Weighting" aria-describedby="basic-addon2">
-                                        <span class="input-group-text" id="basic-addon2">%</span>
+
+                                <div class="col-4">
+                                    <!-- <div class="row">
+                                        <div class="col-counter">3</div>
+                                    </div> -->
+
+                                    <div class="row">
+                                        <div class="col-title">Magnitude</div>
                                     </div>
-                                </div>
-                            </div> -->
-                        </div>
 
-                        <div class="col-2">
-                            <div class="row">
-                                <div class="col-counter">4</div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-title">Pace of Change</div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-question">
-                                    Time frame for market conditions to change
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-slider">
-                                    <!-- <input id="ex1b" type="text" /> -->
-                                    <input id="q1-4" type="text" />
-                                </div>
-                            </div>
-                            <!-- <div class="row">
-                                <div class="col-weighting">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="10"
-                                            aria-label="q1-4 Weighting" aria-describedby="basic-addon2">
-                                        <span class="input-group-text" id="basic-addon2">%</span>
-                                    </div>
-                                </div>
-                            </div> -->
-                        </div>
-
-                        <div class="col-2">
-                            <div class="row">
-                                <div class="col-counter">5</div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-title">Impact on Bus. Goals</div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-question">
-                                    Impact on business-wide objectives and goals
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-slider">
-                                    <!-- <input id="ex1b" type="text" /> -->
-                                    <input id="q1-5" type="text" />
-                                </div>
-                            </div>
-                            <!-- <div class="row">
-                                <div class="col-weighting">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="10"
-                                            aria-label="q1-5 Weighting" aria-describedby="basic-addon2">
-                                        <span class="input-group-text" id="basic-addon2">%</span>
-                                    </div>
-                                </div>
-                            </div> -->
-                        </div>
-
-                        <div class="col-1">
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-4">
-                    <!-- <canvas id="myScatterChart1" width="150" height="150"></canvas> -->
-                    <canvas id="BubbleChart1" width="150" height="150"></canvas>
-                    <div class="graph-annotations">
-                        <!-- If using container -->
-                        <!-- <img src="../images/Graph1_Annotations.jpg" height="320" width="350" /> -->
-                        <img src="../images/Graph1_Annotations.jpg" height="480" width="510" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="notes-row"></div>
-
-            <div class="row" class="notes-row">
-                <div class="col-4">
-                    <div id="bus-context-notes1">
-                        <!-- Notes will be populated here -->
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div id="bus-context-notes2">
-                        <!-- Notes will be populated here -->
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div id="bus-context-notes3">
-                        <!-- Notes will be populated here -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- <div class="notes-row"></div> -->
-
-            <hr class="rounded">
-
-            <!-- 2nd row -->
-                <div class="row">
-                    <div class="section-header">2. Audience Alignment</div>
-                </div>
-                <div class="row">
-                    <div class="col-8">
-    
-                        <div class="row">
-    
-                            <div class="col-1">
-                            </div>
-    
-                            <div class="col-2">
-                                <div class="row">
-                                    <div class="col-counter">6</div>
-                                </div>
-    
-                                <div class="row">
-                                    <div class="col-title">Markets</div>
-                                </div>
-    
-                                <div class="row">
-                                    <div class="col-question">
-                                        Change to revenue sources (markets, segments, audiences)
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-slider">
-                                        <input id="q2-1" type="text" />
+                                    <!-- <div class="row">
+                                        <div class="col-question">
+                                            Magnitude of disruption to market
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                        <div class="col-slider">
+                                            <input id="q1-3" type="text" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-    
-                            <div class="col-2">
-                                <div class="row">
-                                    <div class="col-counter">7</div>
-                                </div>
-    
-                                <div class="row">
-                                    <div class="col-title">Buyers</div>
-                                </div>
-    
-                                <div class="row">
-                                    <div class="col-question">
-                                        Change in campaign audiences (buying groups, decision makers)                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-slider">
-                                        <input id="q2-2" type="text" />
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <div class="col-2">
-                                <div class="row">
-                                    <div class="col-counter">8</div>
-                                </div>
-    
-                                <div class="row">
-                                    <div class="col-title">Buyer Needs</div>
-                                </div>
-    
-                                <div class="row">
-                                    <div class="col-question">
-                                        Change in enterprise-level needs and associated offerings
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-slider">
-                                        <input id="q2-3" type="text" />
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <!-- <div class="col-2">
-                                <div class="row">
-                                    <div class="col-counter">9</div>
-                                </div>
-    
-                                <div class="row">
+
+                            <div class="row">
+                                <div class="col-5">
                                     <div class="col-title">Pace of Change</div>
                                 </div>
-    
-                                <div class="row">
+
+                                <div class="col-7">
+                                    <div class="row-slider">
+                                        <input id="q1-4" type="text" />
+                                    </div>
+                                </div>
+                                <!-- <div class="col-7">
                                     <div class="col-question">
                                         Time frame for market conditions to change
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-slider">
-                                        <input id="q2-4" type="text" />
-                                    </div>
-                                </div>
+                                </div> -->
                             </div>
-    
-                            <div class="col-2">
-                                <div class="row">
-                                    <div class="col-counter">10</div>
-                                </div>
-    
-                                <div class="row">
+
+                            <div class="row">
+                                <div class="col-5">
                                     <div class="col-title">Impact on Bus. Goals</div>
                                 </div>
-    
-                                <div class="row">
+
+                                <div class="col-7">
+                                    <div class="row-slider">
+                                        <input id="q1-5" type="text" />
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col-7">
                                     <div class="col-question">
                                         Impact on business-wide objectives and goals
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-slider">
-                                        <input id="q2-5" type="text" />
+                                </div> -->
+                                <!-- </div> -->
+                                <!-- </div> -->
+                            </div>
+
+                        </div>
+
+                        <div class="notes-row"></div>
+
+                        <div class="row" class="notes-row">
+                            <div id="bus-context-notes1">
+                                <!-- Notes will be populated here -->
+                            </div>
+                            <div id="bus-context-notes2">
+                                <!-- Notes will be populated here -->
+                            </div>
+                            <div id="bus-context-notes3">
+                                <!-- Notes will be populated here -->
+                            </div>
+                        </div>
+                        <!-- </div> -->
+
+                    </div>
+                    <!-- <div class="col-3 nbcol"> -->
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 nbcol">
+
+                        <!-- 2nd column -->
+                        <div class="row">
+                            <div class="section-header">2. Audience Alignment</div>
+                        </div>
+                        <div class="row">
+                            <canvas id="BubbleChart2" width="150" height="150"></canvas>
+                            <div class="graph-annotations">
+                                <img src="../images/Graph2_Annotations.jpg" height="350" width="380" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-4">
+                                    <!-- <div class="row">
+                                        <div class="col-counter">6</div>
+                                    </div> -->
+
+                                    <div class="row">
+                                        <div class="col-title">Markets</div>
+                                    </div>
+
+                                    <!-- <div class="row">
+                                        <div class="col-question">
+                                            Change to revenue sources (markets, segments, audiences)
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                        <div class="col-slider">
+                                            <input id="q2-1" type="text" />
+                                        </div>
                                     </div>
                                 </div>
-                            </div> -->
-    
-                            <div class="col-1">
+
+                                <div class="col-4">
+                                    <!-- <div class="row">
+                                        <div class="col-counter">7</div>
+                                    </div> -->
+
+                                    <div class="row">
+                                        <div class="col-title">Buyers</div>
+                                    </div>
+
+                                    <!-- <div class="row">
+                                        <div class="col-question">
+                                            Change in campaign audiences (buying groups, decision makers)
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                        <div class="col-slider">
+                                            <input id="q2-2" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <!-- <div class="row">
+                                        <div class="col-counter">8</div>
+                                    </div> -->
+
+                                    <div class="row">
+                                        <div class="col-title">Buyer Needs</div>
+                                    </div>
+
+                                    <!-- <div class="row">
+                                        <div class="col-question">
+                                            Change in enterprise-level needs and associated offerings
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                        <div class="col-slider">
+                                            <input id="q2-3" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-    
-                        </div>
-    
-                    </div>
-    
-                    <div class="col-4">
-                        <canvas id="BubbleChart2" width="150" height="150"></canvas>
-                        <div class="graph-annotations">
-                            <!-- If using container -->
-                            <!-- <img src="../images/Graph1_Annotations.jpg" height="320" width="350" /> -->
-                            <img src="../images/Graph2_Annotations.jpg" height="480" width="510" />
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="notes-row"></div>
-    
-                <div class="row" class="notes-row">
-                    <div class="col-4">
-                        <div id="aud-align-notes1">
-                            <!-- Notes will be populated here -->
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div id="aud-align-notes2">
-                            <!-- Notes will be populated here -->
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div id="aud-align-notes3">
-                            <!-- Notes will be populated here -->
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- <div class="notes-row"></div> -->
-    
-                <hr class="rounded">
-    
 
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="col-counter"></div>
+                                </div>
+                                <div class="col-11">
+                                    <div class="row">
 
+                                        <div class="col-5">
+                                            <!-- <div class="col-title">Pace of Change</div> -->
+                                        </div>
+
+                                        <div class="col-7">
+                                            <div class="col-question">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="col-counter"></div>
+                                </div>
+                                <div class="col-11">
+                                    <div class="row">
+
+                                        <div class="col-5">
+                                        </div>
+
+                                        <div class="col-7">
+                                            <div class="col-question">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="notes-row"></div>
+
+                        <div class="row" class="notes-row">
+                            <div id="aud-align-notes1">
+                                <!-- Notes will be populated here -->
+                            </div>
+                            <div id="aud-align-notes2">
+                                <!-- Notes will be populated here -->
+                            </div>
+                            <div id="aud-align-notes3">
+                                <!-- Notes will be populated here -->
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+
+                    <!-- 3rd column -->
+                    <!-- <div class="col-3 nbcol"> -->
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 nbcol">
+
+                        <div class="row">
+                            <div class="section-header">3. Campaign Architecture</div>
+                        </div>
+
+                        <div class="row">
+                            <canvas id="BubbleChart3" width="150" height="150"></canvas>
+                            <div class="graph-annotations">
+                                <img src="../images/Graph3_Annotations.jpg" height="350" width="380" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-6">
+                                    <!-- <div class="row">
+                                        <div class="col-counter">9</div>
+                                    </div> -->
+
+                                    <div class="row">
+                                        <div class="col-title">Resources</div>
+                                    </div>
+
+                                    <!-- <div class="row">
+                                        <div class="col-question">
+                                            Change in campaign budget / resources
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                        <div class="col-slider">
+                                            <input id="q3-1" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <!-- <div class="row">
+                                        <div class="col-counter">10</div>
+                                    </div> -->
+
+                                    <div class="row">
+                                        <div class="col-title">Program Fit</div>
+                                    </div>
+
+                                    <!-- <div class="row">
+                                        <div class="col-question">
+                                            Viability / Appropriateness of programs for audience
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                        <div class="col-slider">
+                                            <input id="q3-2" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col-4">
+                                    <div class="row">
+                                        <div class="col-counter">11</div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-title">Buyer Needs</div>
+                                    </div> -->
+
+                                <!-- <div class="row">
+                                        <div class="col-question">
+                                            Change in enterprise-level needs and associated offerings
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-slider">
+                                            <input id="q3-3" type="text" />
+                                        </div>
+                                    </div> -->
+                                <!-- </div> -->
+                            </div>
+
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="col-counter"></div>
+                                </div>
+                                <div class="col-11">
+                                    <div class="row">
+
+                                        <div class="col-5">
+                                            <!-- <div class="col-title">Pace of Change</div> -->
+                                        </div>
+
+                                        <div class="col-7">
+                                            <div class="col-question">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="col-counter"></div>
+                                </div>
+                                <div class="col-11">
+                                    <div class="row">
+
+                                        <div class="col-5">
+                                        </div>
+
+                                        <div class="col-7">
+                                            <div class="col-question">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="notes-row"></div>
+
+                        <div class="row" class="notes-row">
+                            <div id="camp-arch-notes1">
+                                <!-- Notes will be populated here -->
+                            </div>
+                            <div id="camp-arch-notes2">
+                                <!-- Notes will be populated here -->
+                            </div>
+                            <div id="camp-arch-notes3">
+                                <!-- Notes will be populated here -->
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 4th column -->
+                    <!-- <div class="col-3 nbcol"> -->
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 nbcol">
+
+                        <div class="row">
+                            <div class="section-header">4. Aligned Execution</div>
+                        </div>
+
+                        <div class="row">
+                            <canvas id="BubbleChart4" width="150" height="150"></canvas>
+                            <div class="graph-annotations">
+                                <img src="../images/Graph4_Annotations.jpg" height="350" width="380" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-6">
+                                    <!-- <div class="row">
+                                        <div class="col-counter">9</div>
+                                    </div> -->
+
+                                    <div class="row">
+                                        <div class="col-title">Campaign Performance</div>
+                                    </div>
+
+                                    <!-- <div class="row">
+                                        <div class="col-question">
+                                            Change in campaign metric achievement
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                        <div class="col-slider">
+                                            <input id="q4-1" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <!-- <div class="row">
+                                        <div class="col-counter">10</div>
+                                    </div> -->
+
+                                    <div class="row">
+                                        <div class="col-title">Time Frame</div>
+                                    </div>
+
+                                    <!-- <div class="row">
+                                        <div class="col-question">
+                                            Time frame for realization of metrics
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                        <div class="col-slider">
+                                            <input id="q4-2" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col-4">
+                                    <div class="row">
+                                        <div class="col-counter">11</div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-title">Buyer Needs</div>
+                                    </div> -->
+
+                                <!-- <div class="row">
+                                        <div class="col-question">
+                                            Change in enterprise-level needs and associated offerings
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-slider">
+                                            <input id="q3-3" type="text" />
+                                        </div>
+                                    </div> -->
+                                <!-- </div> -->
+                            </div>
+
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="col-counter"></div>
+                                </div>
+                                <div class="col-11">
+                                    <div class="row">
+
+                                        <div class="col-5">
+                                            <!-- <div class="col-title">Pace of Change</div> -->
+                                        </div>
+
+                                        <div class="col-7">
+                                            <div class="col-question">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-1">
+                                    <div class="col-counter"></div>
+                                </div>
+                                <div class="col-11">
+                                    <div class="row">
+
+                                        <div class="col-5">
+                                        </div>
+
+                                        <div class="col-7">
+                                            <div class="col-question">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="notes-row"></div>
+
+                        <div class="row" class="notes-row">
+                            <div id="align-exec-notes1">
+                                <!-- Notes will be populated here -->
+                            </div>
+                            <div id="align-exec-notes2">
+                                <!-- Notes will be populated here -->
+                            </div>
+                            <div id="align-exec-notes3">
+                                <!-- Notes will be populated here -->
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- <div class="col-4">
+            </div> -->
+            </div>
         </div>
+    </div>
 
-        <!-- Custom Script -->
-        <script src="js/slider.js" type="text/javascript"></script>
-        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="js/bootstrap-slider.js"></script>
-        <!-- <script src="dependencies/js/highlight.min.js"></script> -->
 
-        <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-        <!-- <script src="../../node_modules/popper.js/dist/umd/popper.min.js"></script> -->
-        <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
-        <!-- <script src="temp/bootstrap-slider.js"></script> -->
-        <!-- <script src="dependencies/js/highlight.min.js"></script> -->
-        <!-- <script>hljs.initHighlightingOnLoad();</script> -->
+
+    <!-- <hr class="rounded"> -->
+
+
+    <!-- Custom Script -->
+    <script src="js/slider.js" type="text/javascript"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-slider.js"></script>
+    <!-- <script src="dependencies/js/highlight.min.js"></script> -->
+
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
+    <!-- <script src="temp/bootstrap-slider.js"></script> -->
+    <!-- <script src="dependencies/js/highlight.min.js"></script> -->
+    <!-- <script>hljs.initHighlightingOnLoad();</script> -->
 
 
 </body>

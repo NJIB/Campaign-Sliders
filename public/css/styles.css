@@ -21,8 +21,14 @@ button.submit {
   margin-bottom: 200px;
 }
 
+.nbcol{
+  /* border-style: dashed; */
+  border-color: darkslategrey;
+  padding: 20px;
+}
+
 .section-header {
-  font-size: 28pt;
+  font-size: 24pt;
   font-weight: bold;
   text-align: center;
   margin: 5px;
@@ -41,6 +47,7 @@ button.submit {
   font-weight: bold;
   text-align: center;
   margin: 5px;
+  padding: 15px;
 }
 
 .col-question {
@@ -49,14 +56,22 @@ button.submit {
   font-weight: bold;
   text-align: left;
   margin: 5px;
+  padding: 15px;
 }
 
 .col-slider {
   height: 250px;
+  padding: 20px;
   /* font-size: 12pt;
   font-weight: bold;
   text-align: justify;
   margin: 5px; */
+}
+
+.row-slider {
+  height: 100px;
+  margin: 20px;
+  padding: 20px;
 }
 
 .col-weighting {
@@ -71,8 +86,8 @@ button.submit {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 0;
-  left: 80;
+  top: 110;
+  left: 110;
   /* z-index: 10; */
   z-index: -1;
 }
@@ -82,18 +97,18 @@ margin: 75px;
 }
 
 #bus-context-notes1{
-  margin-left: 70px;
-  font-size: 20pt;
+  /* margin-left: 70px; */
+  font-size: 16pt;
 }
 
 #bus-context-notes2{
-  margin-left: 70px;
-  font-size: 20pt;
+  /* margin-left: 70px; */
+  font-size: 16pt;
 }
 
 #bus-context-notes3{
-  margin-left: 70px;
-  font-size: 20pt;
+  /* margin-left: 70px; */
+  font-size: 16pt;
 }
 
 /* Rounded border */
@@ -686,4 +701,30 @@ text-align: center;
 canvas {
   /* background-image: url(../images/Graph1_Annotations.jpg); */
   background-color: rgba(176, 196, 222, 0.5);
+}
+
+@media screen and (max-width: 979px){
+  .container{width: 95%;}
+  .container{height: 2000px}
+  .container{padding: 5px;}
+  .container{margin: 100px 20px 20px 20px;}
+  header{height: 100px;} 
+}
+
+
+@media screen and (max-width: 767px){
+  .container{width: 95%;}
+  .container{height: 2000px}
+  .container{padding: 5px;}
+  .container{margin: 100px 20px 20px 20px;}
+  header{height: 100px;} 
+}
+
+@media screen and (max-width: 639px){
+  .container{width: 580px;}
+  .container{height: 2000px}
+  .container{padding: 5px;}
+  .container{margin: 70px 20px 20px 20px;}
+  header{height: 100px;} 
+  /* footer{height: 40px;} */
 }

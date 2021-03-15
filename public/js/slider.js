@@ -29,10 +29,10 @@ $(document).ready(function () {
   let radiusSlideVal2 = 10;
   let vertSlideVal3 = 1;
   let horizSlideVal3 = 1;
-  let radiusSlideVal3 = 10;
+  let radiusSlideVal3 = 25;
   let vertSlideVal4 = 1;
   let horizSlideVal4 = 1;
-  let radiusSlideVal4 = 10;
+  let radiusSlideVal4 = 25;
   let paceSlideVal1 = 0;
   let goalsSlideVal1 = 0;
   let pace1Notes = '';
@@ -44,6 +44,10 @@ $(document).ready(function () {
     x: 1,
     y: 1
   }];
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 
   // Adding event listeners to the form to create a new object, and the button to delete
   // an movie
@@ -57,7 +61,10 @@ $(document).ready(function () {
     radiusSlideVal1,
     'Business Context',
     'Temporary    ----------   TIME FRAME   ----------    Permanent',
-    'Local    --------------   SCOPE   --------------    Global'
+    'Local    --------------   SCOPE   --------------    Global',
+    0,
+    100,
+    50
   );
 
   renderBubbleChart(
@@ -67,10 +74,40 @@ $(document).ready(function () {
     vertSlideVal2,
     radiusSlideVal2,
     'Audience Alignment',
-    'Temporary    ----------   TIME FRAME   ----------    Permanent',
-    'Local    --------------   SCOPE   --------------    Global'
+    'Unchanged    ----------   BUYERS   ----------    New',
+    'Unchanged    --------------   MARKETS   --------------    New',
+    0,
+    100,
+    50
   );
 
+  renderBubbleChart(
+    '#BubbleChart3',
+    chart1Data,
+    horizSlideVal3,
+    vertSlideVal3,
+    radiusSlideVal3,
+    'Campaign Architecture',
+    'Unchanged    ----   PROGRAM CONSTRAINTS   ----    Changed',
+    'Unchanged    ------   BUDGET / RESOURCES   ------    Changed',
+    -100,
+    100,
+    100
+  );
+
+  renderBubbleChart(
+    '#BubbleChart4',
+    chart1Data,
+    horizSlideVal4,
+    vertSlideVal4,
+    radiusSlideVal4,
+    'Aligned Execution',
+    '-----------------------   TIME FRAME   ---------------------->',
+    '-----------------   CAMPAIGN PERFORMANCE   ---------------->',
+    -100,
+    100,
+    100
+    );
 
   $("#q1-1").slider({
     min: 0,
@@ -109,8 +146,8 @@ $(document).ready(function () {
     min: 0,
     max: 100,
     value: 0,
-    orientation: 'vertical',
-    reversed: true,
+    // orientation: 'vertical',
+    // reversed: true,
     ticks: [25, 50, 75, 100],
     ticks_labels: ['Slow', 'Steady', 'Rapid', 'Sudden'],
     tooltip_position: 'left'
@@ -120,8 +157,8 @@ $(document).ready(function () {
     min: 0,
     max: 100,
     value: 0,
-    orientation: 'vertical',
-    reversed: true,
+    // orientation: 'vertical',
+    // reversed: true,
     tooltip_position: 'bottom',
     ticks: [0, 20, 40, 60, 80, 100],
     ticks_labels: ['Unchanged', 'Local Changes', 'Regional Changes', '0 -> 10%', '10 -> 25%', '>25%'],
@@ -159,6 +196,52 @@ $(document).ready(function () {
     ticks: [0, 34, 67, 100],
     ticks_labels: ['No Change', 'Moderate', 'Significant', 'Major'],
   });
+
+  $("#q3-1").slider({
+    min: -100,
+    max: 100,
+    value: 0,
+    orientation: 'vertical',
+    reversed: true,
+    tooltip_position: 'bottom',
+    ticks: [-100, -50, 0, 50, 100],
+    ticks_labels: ['Big Reduction', 'Moderate', "No Change", "Moderate Increase", "Big Increase"],
+  });
+
+  $("#q3-2").slider({
+    min: 0,
+    max: 100,
+    value: 0,
+    orientation: 'vertical',
+    reversed: true,
+    ticks: [0, 50, 100],
+    ticks_labels: ["No Change", "Moderate Change", "Significant Change"],
+    tooltip_position: 'left'
+  });
+
+  $("#q4-1").slider({
+    min: -100,
+    max: 100,
+    value: 0,
+    orientation: 'vertical',
+    reversed: true,
+    tooltip_position: 'bottom',
+    ticks: [-100, -50, 0, 50, 100],
+    ticks_labels: ['Big Reduction', 'Moderate', "No Change", "Moderate Increase", "Big Increase"],
+  });
+
+  $("#q4-2").slider({
+    min: 0,
+    max: 100,
+    value: 0,
+    orientation: 'vertical',
+    reversed: true,
+    ticks: [0, 50, 100],
+    ticks_labels: ["No Change", "Moderate Change", "Significant Change"],
+    tooltip_position: 'left'
+  });
+
+
 
 
   function handleSliderChange(event) {
@@ -252,6 +335,63 @@ $(document).ready(function () {
       }
     });
 
+    $('#q3-1').slider({
+      // Shows value on the tooltip
+      formatter: function (value) {
+        vertSlideVal3 = value;
+
+        // Expand magnitude bubble
+        if (radiusSlideVal3 == 0) {
+          radiusSlideVal3 = 25;
+        };
+
+        return value;
+      }
+    });
+
+    $('#q3-2').slider({
+      formatter: function (value) {
+        horizSlideVal3 = value;
+
+        // Expand magnitude bubble
+        if (radiusSlideVal3 == 0) {
+          radiusSlideVal3 = 25;
+        };
+
+        return value;
+      }
+    });
+
+    $('#q4-1').slider({
+      // Shows value on the tooltip
+      formatter: function (value) {
+        vertSlideVal4 = value;
+
+        // Expand magnitude bubble
+        if (radiusSlideVal4 == 0) {
+          radiusSlideVal4 = 25;
+        };
+
+        return value;
+      }
+    });
+
+    $('#q4-2').slider({
+      formatter: function (value) {
+        horizSlideVal4 = value;
+
+        // Expand magnitude bubble
+        if (radiusSlideVal4 == 0) {
+          radiusSlideVal4 = 25;
+        };
+
+        return value;
+      }
+    });
+
+
+
+
     renderBubbleChart(
       '#BubbleChart1',
       chart1Data,
@@ -260,7 +400,10 @@ $(document).ready(function () {
       radiusSlideVal1,
       'Business Context',
       'Temporary    ----------   TIME FRAME   ----------    Permanent',
-      'Local    --------------   SCOPE   --------------    Global'
+      'Local    --------------   SCOPE   --------------    Global',
+      0,
+      100,
+      50  
     );
 
     renderBubbleChart(
@@ -270,10 +413,41 @@ $(document).ready(function () {
       vertSlideVal2,
       radiusSlideVal2,
       'Audience Alignment',
-      'Temporary    ----------   TIME FRAME   ----------    Permanent',
-      'Local    --------------   SCOPE   --------------    Global'
+      'Unchanged    ----------   BUYERS   ----------    New',
+      'Unchanged    --------------   MARKETS   --------------    New',
+        0,
+      100,
+      50  
     );
 
+    renderBubbleChart(
+      '#BubbleChart3',
+      chart1Data,
+      horizSlideVal3,
+      vertSlideVal3,
+      radiusSlideVal3,
+      'Campaign Architecture',
+      'Unchanged    ----   PROGRAM CONSTRAINTS   ----    Changed',
+      'Unchanged    ------   BUDGET / RESOURCES   ------    Changed',
+      -100,
+      100,
+      100  
+      );
+
+      renderBubbleChart(
+        '#BubbleChart4',
+        chart1Data,
+        horizSlideVal4,
+        vertSlideVal4,
+        radiusSlideVal4,
+        'Aligned Execution',
+        '-----------------------   TIME FRAME   ---------------------->',
+        '-----------------   CAMPAIGN PERFORMANCE   ---------------->',
+        -100,
+        100,
+        100    
+        );
+  
   
     // renderBubbleChart('#BubbleChart1', chart1Data, horizSlideVal1, vertSlideVal1, radiusSlideVal1, 'Temporary    ----------   TIME FRAME   ----------    Permanent', 'Local    --------------   SCOPE   --------------    Global');
 
@@ -349,7 +523,7 @@ $(document).ready(function () {
   };
 
   // This creates the display object for the Revenue Bubble Chart(s)
-  function renderBubbleChart(chartId, chartData, horizSlideVal, vertSlideVal, radiusSlideVal, graphTitle, xlabelString, ylabelString) {
+  function renderBubbleChart(chartId, chartData, horizSlideVal, vertSlideVal, radiusSlideVal, graphTitle, xlabelString, ylabelString, suggMin, suggMax, stepSize) {
 
     var ctx = $(chartId);
     // console.log("ChartId", chartId);
@@ -399,9 +573,9 @@ $(document).ready(function () {
               // max: 'Global',
               display: false,
               beginAtZero: false,
-              suggestedMin: 0,
-              suggestedMax: 100,
-              stepSize: 50,
+              suggestedMin: suggMin,
+              suggestedMax: suggMax,
+              stepSize: stepSize,
             }
           }]
         }
@@ -410,59 +584,5 @@ $(document).ready(function () {
 
     ctx.prepend(BubbleChart1);
   }
-
-
-  function renderChart(chartId, chartData, horizSlideVal, vertSlideVal) {
-
-    var ctx = $(chartId);
-    // console.log("ChartId", chartId);
-    // var ctx = $('#myScatterChart1');
-
-    var myScatterChart = new Chart(ctx, {
-      type: 'scatter',
-      data: {
-        datasets: [{
-          // label: 'Scatter Dataset',
-          // backgroundColor: ['#ff6384'],
-          data: [{
-            x: horizSlideVal,
-            y: vertSlideVal,
-          }
-            // ,{
-            //     x: 0,
-            //     y: 10
-            // }, {
-            //     x: 10,
-            //     y: 5
-            // }
-          ],
-        }]
-      },
-      options: {
-        scales: {
-          xAxes: [{
-            type: 'linear',
-            position: 'bottom',
-            ticks: {
-              suggestedMin: 1,
-              suggestedMax: 5,
-              stepSize: 1,
-            }
-          }],
-          yAxes: [{
-            ticks: {
-              suggestedMin: 1,
-              suggestedMax: 5,
-              stepSize: 1,
-            }
-          }]
-        }
-      }
-
-    });
-
-    ctx.prepend(myScatterChart);
-  }
-
 
 });
