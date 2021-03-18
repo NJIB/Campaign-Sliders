@@ -449,8 +449,7 @@ $(document).ready(function () {
         );
   
   
-    // renderBubbleChart('#BubbleChart1', chart1Data, horizSlideVal1, vertSlideVal1, radiusSlideVal1, 'Temporary    ----------   TIME FRAME   ----------    Permanent', 'Local    --------------   SCOPE   --------------    Global');
-
+    // Render notes for graph 1    
     if (horizSlideVal1 > 50) {
       const horizSlideScore = "H";
       buscontextScore = horizSlideScore;
@@ -519,7 +518,60 @@ $(document).ready(function () {
     $('#bus-context-notes3').append(goals1Notes);
 
     buscontextNotes.length = 0;
-    console.log("buscontextNotes:", buscontextNotes);
+    // console.log("buscontextNotes:", buscontextNotes);
+
+    // Render notes for graph 2  
+        if (horizSlideVal2 > 50) {
+          const horizSlideScore = "H";
+          audalignScore = horizSlideScore;
+        } else {
+          const horizSlideScore = "L";
+          audalignScore = horizSlideScore;
+        };
+    
+        if (vertSlideVal2 < 50) {
+          const vertSlideScore = "L";
+          audalignScore = audalignScore + vertSlideScore;
+        } else {
+          const vertSlideScore = "H";
+          audalignScore = audalignScore + vertSlideScore;
+        };
+    
+        console.log("audalignScore: ", audalignScore)
+        switch (audalignScore) {
+          case "LL":
+            audalignNotes.push("<p>&#9713 www.</p>");
+            break;
+    
+          case "LH":
+            audalignNotes.push("<p>&#9712 xxx.</p>");
+            break;
+    
+          case "HL":
+            audalignNotes.push("<p>&#9714 yyy.</p>");
+            break;
+    
+          case "HH":
+            audalignNotes.push("<p>&#9715 zzz.</p>");
+            break;
+        }; 
+    
+        const audNotes = audalignNotes[audalignNotes.length - 1];
+        console.log("audNotes: ", audNotes);
+    
+        //Populate div
+        $('#aud-align-notes1').empty();
+        $('#aud-align-notes1').append(audNotes);
+    
+        $('#aud-align-notes2').empty();
+        $('#aud-align-notes2').append(pace1Notes);
+    
+        $('#aud-align-notes3').empty();
+        $('#aud-align-notes3').append(goals1Notes);
+    
+        audalignNotes.length = 0;
+        // console.log("buscontextNotes:", buscontextNotes);
+    
   };
 
   // This creates the display object for the Revenue Bubble Chart(s)

@@ -1,8 +1,27 @@
 header {
+  /* box-sizing: border-box;
+  position: fixed;
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-right: 50px;
+  padding-right: 50px; */
 }
+
+.headerbox {
+    background-color: #B0C4DE;
+    padding-left: 50px;
+    padding-top: 25px;
+    padding-bottom: auto;
+    padding-right: 50px;
+    margin: auto;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    z-index: 2;
+    border-bottom: darkslategrey;
+  }
 
 nav {
   text-align: right;
@@ -22,7 +41,7 @@ button.submit {
 }
 
 .nbcol{
-  /* border-style: dashed; */
+  border-style: dashed;
   border-color: darkslategrey;
   padding: 20px;
 }
@@ -698,9 +717,55 @@ text-align: center;
   opacity: 1;
 }
 
+.graph-frame{
+height: 400px;
+width: 400px;
+margin: 25px;
+}
+
 canvas {
+  height: 350px;
+  width: 350px;
   /* background-image: url(../images/Graph1_Annotations.jpg); */
-  background-color: rgba(176, 196, 222, 0.5);
+  /* background-color: rgba(176, 196, 222, 0.5); */
+  /* background-image: url(../images/Graph1_Annotations.jpg); */
+}
+
+#BubbleChart1{
+  height: 350px;
+  width: 350px;  
+  background-image: url(../images/Graph1_Annotations.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+#BubbleChart2{
+  height: 350px;
+  width: 350px;  
+  background-image: url(../images/Graph2_Annotations.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+#BubbleChart3{
+  height: 350px;
+  width: 350px;  
+  background-image: url(../images/Graph3_Annotations.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+#BubbleChart4{
+  height: 350px;
+  width: 350px;  
+  background-image: url(../images/Graph4_Annotations.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.section-header {
+  height: 100px;
+  font-size: 24pt;
+  font-weight: bold;
+  text-align: center;
+  margin: 5px;
 }
 
 @media screen and (max-width: 979px){
@@ -709,6 +774,48 @@ canvas {
   .container{padding: 5px;}
   .container{margin: 100px 20px 20px 20px;}
   header{height: 100px;} 
+  canvas{
+    /* height: 90%;
+    width: 90%; */
+    height: 400px;
+    width: 400px;
+  }
+  #BubbleChart1{
+    height: 350px;
+    width: 350px;  
+    background-image: url(../images/Graph1_Annotations.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  #BubbleChart2{
+    height: 350px;
+    width: 350px;  
+    background-image: url(../images/Graph2_Annotations.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  #BubbleChart3{
+    height: 350px;
+    width: 350px;  
+    background-image: url(../images/Graph3_Annotations.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  #BubbleChart4{
+    height: 350px;
+    width: 350px;  
+    background-image: url(../images/Graph4_Annotations.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
+  .section-header {
+    height: 100px;
+    font-size: 24pt;
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+  }
 }
 
 
@@ -718,6 +825,20 @@ canvas {
   .container{padding: 5px;}
   .container{margin: 100px 20px 20px 20px;}
   header{height: 100px;} 
+  canvas{
+    height: 400px;
+    width: 400px;
+    /* height: 350px;
+    width: 90%; */
+  }
+
+  .section-header {
+    height: 50px;
+    font-size: 20pt;
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+  }
 }
 
 @media screen and (max-width: 639px){
@@ -725,6 +846,28 @@ canvas {
   .container{height: 2000px}
   .container{padding: 5px;}
   .container{margin: 70px 20px 20px 20px;}
-  header{height: 100px;} 
+  header{
+    height: 60px;
+    margin-bottom: 20px;
+  } 
+  canvas{
+    height: 400px;
+    width: 400px;
+    /* height: 350px;
+    width: 90%; */
+  }
   /* footer{height: 40px;} */
+  #BubbleChart1{
+    height: 200px;
+    width: 200px;
+    /* width: 400px; */
+  }
+
+  .section-header {
+    height: 50px;
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+  }
 }
