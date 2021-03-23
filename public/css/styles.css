@@ -41,7 +41,7 @@ button.submit {
 }
 
 .nbcol{
-  border-style: dashed;
+  /* border-style: dashed; */
   border-color: darkslategrey;
   padding: 20px;
 }
@@ -112,7 +112,10 @@ button.submit {
 }
 
 .notes-row {
-margin: 75px;
+    border-style: dashed;
+    border-color: darkslategrey;
+    margin: 75px;
+    font-size: 16pt;
 }
 
 #bus-context-notes1{

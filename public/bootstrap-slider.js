@@ -862,6 +862,13 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 				reversed: false,
 				rtl: 'auto',
 				enabled: true,
+				nbconsole: function nbconsole(nbclass) {
+					if (Array.isArray(nbclass)) {
+						return nbclass[0] + " : " + nbclass[1];
+					} else {
+						return nbclass;
+					}
+				},
 				formatter: function formatter(val) {
 					if (Array.isArray(val)) {
 						return val[0] + " : " + val[1];
