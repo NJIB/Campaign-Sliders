@@ -36,6 +36,7 @@ $(document).ready(function () {
   let camparchNotes = [];
   let alignexecScore = '';
   let alignexecNotes = [];
+  let bubbleColor = 'rgba(255,255,0,0.6)';
 
   let chart1Data = [{
     x: 1,
@@ -205,7 +206,7 @@ $(document).ready(function () {
     reversed: true,
     tooltip_position: 'bottom',
     ticks: [-100, -50, 0, 50, 100],
-    ticks_labels: ['Big Reduction', 'Moderate', "No Change", "Moderate Increase", "Big Increase"],
+    ticks_labels: ['Big Reduction', 'Moderate Reduction', "No Change", "Moderate Increase", "Big Increase"],
   });
 
   $("#q3-2").slider({
@@ -227,7 +228,7 @@ $(document).ready(function () {
     reversed: true,
     tooltip_position: 'bottom',
     ticks: [-100, -50, 0, 50, 100],
-    ticks_labels: ['Big Reduction', 'Moderate', "No Change", "Moderate Increase", "Big Increase"],
+    ticks_labels: ['Big Reduction', 'Moderate Reduction', "No Change", "Moderate Increase", "Big Increase"],
   });
 
   $("#q4-2").slider({
@@ -685,58 +686,58 @@ $(document).ready(function () {
           100
         );
 
-                // Render notes for graph 3  
-                if (horizSlideVal3 > 50) {
-                  const horizSlideScore = "H";
-                  camparchScore = horizSlideScore;
-                } else {
-                  const horizSlideScore = "L";
-                  camparchScore = horizSlideScore;
-                };
-        
-                if (vertSlideVal3 < 50) {
-                  const vertSlideScore = "L";
-                  camparchScore = camparchScore + vertSlideScore;
-                } else {
-                  const vertSlideScore = "H";
-                  camparchScore = camparchScore + vertSlideScore;
-                };
-        
-                console.log("camparchScore: ", camparchScore)
-                switch (camparchScore) {
-                  case "LL":
-                    camparchNotes.push("<p>&#9713 www.</p>");
-                    break;
-        
-                  case "LH":
-                    camparchNotes.push("<p>&#9712 xxx.</p>");
-                    break;
-        
-                  case "HL":
-                    camparchNotes.push("<p>&#9714 yyy.</p>");
-                    break;
-        
-                  case "HH":
-                    camparchNotes.push("<p>&#9715 zzz.</p>");
-                    break;
-                };
-        
-                const campNotes = camparchNotes[camparchNotes.length - 1];
-                console.log("campNotes: ", campNotes);
-        
-                //Populate div
-                $('#camp-arch-note1').empty();
-                $('#camp-arch-note1').append(campNotes);
-        
-                $('#camp-arch-note2').empty();
-                $('#camp-arch-note2').append(pace1Notes);
-        
-                $('#camp-arch-note3').empty();
-                $('#camp-arch-note3').append(goals1Notes);
-        
-                camparchNotes.length = 0;
-                // console.log("camparchNotes:", camparchNotes);
-        
+        // Render notes for graph 3  
+        if (horizSlideVal3 > 50) {
+          const horizSlideScore = "H";
+          camparchScore = horizSlideScore;
+        } else {
+          const horizSlideScore = "L";
+          camparchScore = horizSlideScore;
+        };
+
+        if (vertSlideVal3 < 50) {
+          const vertSlideScore = "L";
+          camparchScore = camparchScore + vertSlideScore;
+        } else {
+          const vertSlideScore = "H";
+          camparchScore = camparchScore + vertSlideScore;
+        };
+
+        console.log("camparchScore: ", camparchScore)
+        switch (camparchScore) {
+          case "LL":
+            camparchNotes.push("<p>&#9713 www.</p>");
+            break;
+
+          case "LH":
+            camparchNotes.push("<p>&#9712 xxx.</p>");
+            break;
+
+          case "HL":
+            camparchNotes.push("<p>&#9714 yyy.</p>");
+            break;
+
+          case "HH":
+            camparchNotes.push("<p>&#9715 zzz.</p>");
+            break;
+        };
+
+        const campNotes = camparchNotes[camparchNotes.length - 1];
+        console.log("campNotes: ", campNotes);
+
+        //Populate div
+        $('#camp-arch-note1').empty();
+        $('#camp-arch-note1').append(campNotes);
+
+        $('#camp-arch-note2').empty();
+        $('#camp-arch-note2').append(pace1Notes);
+
+        $('#camp-arch-note3').empty();
+        $('#camp-arch-note3').append(goals1Notes);
+
+        camparchNotes.length = 0;
+        // console.log("camparchNotes:", camparchNotes);
+
         break;
 
       case ('q4'):
@@ -908,6 +909,12 @@ $(document).ready(function () {
   // This creates the display object for the Revenue Bubble Chart(s)
   function renderBubbleChart(chartId, chartData, horizSlideVal, vertSlideVal, radiusSlideVal, graphTitle, xlabelString, ylabelString, suggMin, suggMax, stepSize) {
 
+    if(radiusSlideVal > 65){
+      bubbleColor = 'rgba(255,0,0,0.6)'
+    } else if(radiusSlideVal > 35) {
+      bubbleColor = 'rgba(255,165,0,0.6)'
+    }
+
     var ctx = $(chartId);
     // console.log("ChartId", chartId);
 
@@ -919,19 +926,17 @@ $(document).ready(function () {
           data: [{
             x: horizSlideVal,
             y: vertSlideVal,
-            r: radiusSlideVal,
-
-            // data: chart2Data,
-            // backgroundColor: green,
-          }]
+            r: radiusSlideVal
+          }],
+          // data: chart2Data,
+          backgroundColor: bubbleColor,
         }]
       },
       options: {
         scales: {
           xAxes: [{
             scaleLabel: {
-              display: true,
-              // labelString: 'Temporary    ----------   TIME FRAME   ----------    Permanent',
+              display: false,
               labelString: xlabelString,
             },
             type: 'linear',
@@ -946,8 +951,7 @@ $(document).ready(function () {
           }],
           yAxes: [{
             scaleLabel: {
-              display: true,
-              // labelString: 'Local    --------------   SCOPE   --------------    Global',
+              display: false,
               labelString: ylabelString,
             },
             ticks: {
@@ -966,6 +970,8 @@ $(document).ready(function () {
     });
 
     ctx.prepend(BubbleChart1);
+    bubbleColor = 'rgba(255,255,0,0.6)';
+
   }
 
 });
