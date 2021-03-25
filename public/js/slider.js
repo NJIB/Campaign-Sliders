@@ -50,7 +50,6 @@ $(document).ready(function () {
   // Adding event listeners to the form to create a new object, and the button to delete
   // an movie
   $(document).on('change', '.slider', handleSliderChange);
-  // $(document).on('change', '.q1', handleSliderMove);
 
   renderBubbleChart(
     '#BubbleChart1',
@@ -254,122 +253,35 @@ $(document).ready(function () {
     });
   });
 
-  // function handleSliderMove(event) {
-  //   event.preventDefault();
-
-  //   // $(this).slider({
-  //     $('#q1-1').slider({
-
-
-  //     // Shows value on the tooltips
-  //     formatter: function (value) {
-  //       vertSlideVal1 = value;
-
-  //       // Expand magnitude bubble
-  //       if (radiusSlideVal1 == 0) {
-  //         radiusSlideVal1 = 10;
-  //       };
-
-  //       return value;
-
-  //     }
-  //   });
-
-
-  //   renderBubbleChart(
-  //     '#BubbleChart1',
-  //     chart1Data,
-  //     horizSlideVal1,
-  //     vertSlideVal1,
-  //     radiusSlideVal1,
-  //     'Business Context',
-  //     'Temporary    ----------   TIME FRAME   ----------    Permanent',
-  //     'Local    --------------   SCOPE   --------------    Global',
-  //     0,
-  //     100,
-  //     50
-  //   );
-
-
-  //   // Render notes for graph 1    
-  //   if (horizSlideVal1 > 50) {
-  //     const horizSlideScore = "H";
-  //     buscontextScore = horizSlideScore;
-  //   } else {
-  //     const horizSlideScore = "L";
-  //     buscontextScore = horizSlideScore;
-  //   };
-
-  //   if (vertSlideVal1 < 50) {
-  //     const vertSlideScore = "L";
-  //     buscontextScore = buscontextScore + vertSlideScore;
-  //   } else {
-  //     const vertSlideScore = "H";
-  //     buscontextScore = buscontextScore + vertSlideScore;
-  //   };
-
-  //   console.log("buscontextScore: ", buscontextScore)
-  //   switch (buscontextScore) {
-  //     case "LL":
-  //       buscontextNotes.push("<p>&#9713 Localized disruption + temporary time frame. Campaign likely still sound; Local level response sufficient.</p>");
-  //       break;
-
-  //     case "LH":
-  //       buscontextNotes.push("<p>&#9712 Widespread disruption + temporary time frame. Overall campaign likely still sound; Programmatic response required to address market disruption.</p>");
-  //       break;
-
-  //     case "HL":
-  //       buscontextNotes.push("<p>&#9714 Localized disruption + prolonged time frame. Campaign in some markets may require attention; Consider regional adjustments.</p>");
-  //       break;
-
-  //     case "HH":
-  //       buscontextNotes.push("<p>&#9715 Widespread disruption + prolonged time frame. Campaign likely misaligned from market needs; Conduct full campaign review.</p>");
-  //       break;
-  //   };
-
-  //   //Load comment for pace slider
-  //   if (paceSlideVal1 == 0) {
-  //     pace1Notes = "<p></p>"
-  //   } else if (paceSlideVal1 < 50) {
-  //     pace1Notes = "<p> &#9655 Slow to steady pace of change. Gradual adaptation / evolution of campaign advisable. </p>"
-  //   } else if (paceSlideVal1 > 49) {
-  //     pace1Notes = "<p> &#9655 &#9655 Rapid change in the campaign environment. Immediate changes to campaign focus required. </p>"
-  //   };
-
-  //   //Load comment for pace slider
-  //   if (goalsSlideVal1 == 0) {
-  //     goals1Notes = "<p></p>"
-  //   } else if (goalsSlideVal1 > 0 && goalsSlideVal1 < 25) {
-  //     goals1Notes = "<p> &#9678 Limited impact on business goals. Minor adjustments to campaign may suffice, depending on other criteria. </p>"
-  //   } else {
-  //     goals1Notes = "<p> &#9651 Business goals have changed. Campaign goals will also be impacted, along with other campaign elements. </p>"
-  //   };
-
-
-  //   const notes = buscontextNotes[buscontextNotes.length - 1];
-  //   console.log("notes: ", notes);
-
-  //   //Populate div
-  //   $('#bus-context-notes1').empty();
-  //   $('#bus-context-notes1').append(notes);
-
-  //   $('#bus-context-notes2').empty();
-  //   $('#bus-context-notes2').append(pace1Notes);
-
-  //   $('#bus-context-notes3').empty();
-  //   $('#bus-context-notes3').append(goals1Notes);
-
-  //   buscontextNotes.length = 0;
-  //   // console.log("buscontextNotes:", buscontextNotes);
-
-  // };
-
   function handleSliderChange(event) {
     event.preventDefault();
 
     // console.log($(this)[0].parentNode.childNodes[2].id);
     colRef = ($(this)[0].parentNode.childNodes[2].id).substr(0, 2);
     console.log("colRef: ", colRef);
+
+    //Toggle from aircraft instruments to 2x2 graphics
+    // switch(colRef){
+    //   case "q1":
+    //     $('#BubbleChart1').removeClass('BubbleChart1');
+    //     $('#BubbleChart1').addClass('BubbleChart1new');
+    //   break;
+
+    //   case "q2":
+    //     $('#BubbleChart2').removeClass('BubbleChart2');
+    //     $('#BubbleChart2').addClass('BubbleChart2new');
+    //   break;
+
+    //   case "q3":
+    //     $('#BubbleChart3').removeClass('BubbleChart3');
+    //     $('#BubbleChart3').addClass('BubbleChart3new');
+    //   break;
+
+    //   case "q4":
+    //     $('#BubbleChart4').removeClass('BubbleChart4');
+    //     $('#BubbleChart4').addClass('BubbleChart4new');
+    //   break;
+    // };
 
     $('#q1-1').slider({
 

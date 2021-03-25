@@ -127,6 +127,15 @@ button.submit {
     font-size: 16pt;
 }
 
+.spacer-row {
+  border-style: dashed;
+  border-color: darkslategrey;
+  border-top: 50px;
+  border-bottom: 50px;
+  height: 300px;
+  font-size: 16pt;
+}
+
 .commentary_notes{
   font-size: 16pt;
 }
@@ -235,54 +244,6 @@ button.edit {
   display: none;
 }
 
-#segment-name {
-  width: 30%;
-  height: 35px;
-  margin: 5px;
-  padding: 10px;
-}
-
-#segment-deal_size {
-  width: 30%;
-  height: 35px;
-  margin: 5px;
-  padding: 10px;
-}
-
-#segment-deal_count {
-  width: 30%;
-  height: 35px;
-  margin: 5px;
-  padding: 10px;
-}
-
-#segment-revenue {
-  width: 30%;
-  height: 35px;
-  margin: 5px;
-  padding: 10px;
-}
-
-#deal_size_yoy {
-  height: 25px;
-  width: 80px;
-  margin: 5px;
-  padding: 10px;
-}
-
-#deal_count_yoy {
-  height: 25px;
-  width: 80px;
-  margin: 5px;
-  padding: 10px;
-}
-
-.add_segment {
-  margin-top: 50px;
-  margin-bottom: 100px;
-  vertical-align: middle;
-}
-
 header {
   position: relative;
   height: 100px;
@@ -337,9 +298,6 @@ text-align: center;
 .headnav {
   padding-bottom: 50px;
 }
-
-
-
 
 
 #ex1Slider .slider-selection {
@@ -753,11 +711,45 @@ canvas {
   height: 350px;
   width: 350px;  
   /* background-image: url(../images/Graph1_Annotations.jpg); */
+  /* background-image: url(../images/BusCont.png);
+  background-size: 100%;
+  background-repeat: no-repeat; */
+}
+#BubbleChart2{
+  height: 350px;
+  width: 350px;  
+  /* background-image: url(../images/Graph2_Annotations.jpg); */
+  /* background-image: url(../images/AudAlign.png);
+  background-size: 100%;
+  background-repeat: no-repeat; */
+}
+#BubbleChart3{
+  height: 350px;
+  width: 350px;  
+  /* background-image: url(../images/Graph3_Annotations.jpg); */
+  /* background-image: url(../images/CampArch.png);
+  background-size: 100%;
+  background-repeat: no-repeat; */
+}
+#BubbleChart4{
+  height: 350px;
+  width: 350px;  
+  /* background-image: url(../images/Graph4_Annotations.jpg); */
+  /* background-image: url(../images/AlignExec.png); */
+  /* background-size: 100%;
+  background-repeat: no-repeat; */
+}
+
+.BubbleChart1{
+  height: 350px;
+  width: 350px;  
+  /* background-image: url(../images/weather_radar.jpg); */
+  /* background-image: url(../images/Graph1_Annotations.jpg); */
   background-image: url(../images/BusCont.png);
   background-size: 100%;
   background-repeat: no-repeat;
 }
-#BubbleChart2{
+.BubbleChart2{
   height: 350px;
   width: 350px;  
   /* background-image: url(../images/Graph2_Annotations.jpg); */
@@ -765,7 +757,7 @@ canvas {
   background-size: 100%;
   background-repeat: no-repeat;
 }
-#BubbleChart3{
+.BubbleChart3{
   height: 350px;
   width: 350px;  
   /* background-image: url(../images/Graph3_Annotations.jpg); */
@@ -773,7 +765,40 @@ canvas {
   background-size: 100%;
   background-repeat: no-repeat;
 }
-#BubbleChart4{
+.BubbleChart4{
+  height: 350px;
+  width: 350px;  
+  /* background-image: url(../images/Graph4_Annotations.jpg); */
+  background-image: url(../images/AlignExec.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.BubbleChart1new{
+  height: 350px;
+  width: 350px;  
+  /* background-image: url(../images/Graph1_Annotations.jpg); */
+  background-image: url(../images/BusCont.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.BubbleChart2new{
+  height: 350px;
+  width: 350px;  
+  /* background-image: url(../images/Graph2_Annotations.jpg); */
+  background-image: url(../images/AudAlign.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.BubbleChart3new{
+  height: 350px;
+  width: 350px;  
+  /* background-image: url(../images/Graph3_Annotations.jpg); */
+  background-image: url(../images/CampArch.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.BubbleChart4new{
   height: 350px;
   width: 350px;  
   /* background-image: url(../images/Graph4_Annotations.jpg); */
@@ -802,39 +827,6 @@ canvas {
     width: 90%; */
     height: 400px;
     width: 400px;
-  }
-
-  #BubbleChart1{
-    height: 350px;
-    width: 350px;  
-    /* background-image: url(../images/Graph1_Annotations.jpg); */
-    background-image: url(../images/BusCont.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
-  }
-  #BubbleChart2{
-    height: 350px;
-    width: 350px;  
-    /* background-image: url(../images/Graph2_Annotations.jpg); */
-    background-image: url(../images/AudAlign.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
-  }
-  #BubbleChart3{
-    height: 350px;
-    width: 350px;  
-    /* background-image: url(../images/Graph3_Annotations.jpg); */
-    background-image: url(../images/CampArch.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
-  }
-  #BubbleChart4{
-    height: 350px;
-    width: 350px;  
-    /* background-image: url(../images/Graph4_Annotations.jpg); */
-    background-image: url(../images/AlignExec.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
   }
 
   .section-header {
@@ -887,12 +879,7 @@ canvas {
     width: 90%; */
   }
   /* footer{height: 40px;} */
-  #BubbleChart1{
-    height: 200px;
-    width: 200px;
-    /* width: 400px; */
-  }
-
+  
   .section-header {
     font-family: Arial, Helvetica, sans-serif;
     height: 50px;
