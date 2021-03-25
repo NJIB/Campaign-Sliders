@@ -1,7 +1,6 @@
 const db = require('../models');
 
 module.exports = function(app) {
-
   // Find all Segments and return them to the user with res.json
   // Here we add an "include" property to our options in our findAll query
   // We set the value to an array of the models we want to include in a left outer join
@@ -38,13 +37,13 @@ module.exports = function(app) {
   app.post('/api/movies', async (req, res) => {
     // Create an Segment with the data available to us in req.body
     console.log("req.body: ", req.body);
-    const {date, movie, genre, chosenby, comments} = req.body;
+    const {date, movie, protein, vegetable, carb} = req.body;
 
     // const sgmt_rev = (deal_size * deal_count);
     // console.log("sgmt_rev: ", sgmt_rev);
 
     try {
-      const result = await db.Movie.create({date, movie, genre, chosenby, comments});
+      const result = await db.Movie.create({date, movie, protein, vegetable, carb});
       // const result = await db.Segment.create({name, deal_size, deal_count});
       res.json({created: result.dataValues});
     } catch (error) {
@@ -75,12 +74,12 @@ module.exports = function(app) {
     // Add code here to update a segment using the values in req.body, where the id is equal to
     // req.body.id and return the result to the user using res.json
     // const {id, name} = req.body;
-    const {date, movie, genre, chosenby, comments} = req.body;
+    const {date, movie, protein, vegetable, carb} = req.body;
     console.log("name: ", name);
 
     try {
       const result = await db.Movie.update(
-          {date, movie, genre, chosenby, comments},
+          {date, movie, protein, vegetable, carb},
           {where: {id}},
       );
       const affectedRowCount = result[0];

@@ -115,7 +115,7 @@ $(document).ready(function () {
     orientation: 'vertical',
     reversed: true,
     tooltip_position: 'bottom',
-    ticks: [20, 40, 60, 80, 100],
+    ticks: [0, 25, 50, 75, 100],
     ticks_labels: ['Part of a Country/MU', 'Single Country/MU', 'Single Region', 'Multiple Regions', 'Global - All Regions'],
   });
 
@@ -161,8 +161,8 @@ $(document).ready(function () {
     // orientation: 'vertical',
     // reversed: true,
     tooltip_position: 'bottom',
-    ticks: [0, 20, 40, 60, 80, 100],
-    ticks_labels: ['Unchanged', 'Local Changes', 'Regional Changes', '0 -> 10%', '10 -> 25%', '>25%'],
+    ticks: [0, 50, 100],
+    ticks_labels: ['Unchanged', 'Minor', 'Major'],
   });
 
   $("#q2-1").slider({
@@ -637,34 +637,38 @@ $(document).ready(function () {
         console.log("audalignScore: ", audalignScore)
         switch (audalignScore) {
           case "LL":
-            audalignNotes.push("<p>&#9713 www.</p>");
+            audalignNotes.push("<p>&#9713 No major change to key markets or sources of revenue.</p>");
+            audalignNotes.push("<p>&#9713 No major change to key buyer audiences.</p>");
             break;
 
           case "LH":
-            audalignNotes.push("<p>&#9712 xxx.</p>");
+            audalignNotes.push("<p>&#9712 New markets and/or sources of revenue have emerged, as a result of the disruption.</p>");
+            audalignNotes.push("<p>&#9712 Core buyers and decision makers remain largely unchanged.</p>");
             break;
 
           case "HL":
-            audalignNotes.push("<p>&#9714 yyy.</p>");
+            audalignNotes.push("<p>&#9714 No major change to key markets or sources of revenue.</p>");
+            audalignNotes.push("<p>&#9714 New buyers / decision makers have come into focus.</p>");
             break;
 
           case "HH":
-            audalignNotes.push("<p>&#9715 zzz.</p>");
+            audalignNotes.push("<p>&#9715 New markets and/or sources of revenue have emerged, as a result of the disruption.</p>");
+            audalignNotes.push("<p>&#9715 New buyers / decision makers have come into focus.</p>");
             break;
         };
 
-        const audNotes = audalignNotes[audalignNotes.length - 1];
-        console.log("audNotes: ", audNotes);
+        // const audNotes = audalignNotes[audalignNotes.length - 1];
+        // console.log("audNotes: ", audNotes);
 
         //Populate div
         $('#aud-align-notes1').empty();
-        $('#aud-align-notes1').append(audNotes);
+        $('#aud-align-notes1').append(audalignNotes[0]);
 
         $('#aud-align-notes2').empty();
-        $('#aud-align-notes2').append(pace1Notes);
+        $('#aud-align-notes2').append(audalignNotes[1]);
 
         $('#aud-align-notes3').empty();
-        $('#aud-align-notes3').append(goals1Notes);
+        $('#aud-align-notes3').append(audalignNotes[2]);
 
         audalignNotes.length = 0;
         // console.log("audalignNotes:", audalignNotes);
@@ -695,7 +699,7 @@ $(document).ready(function () {
           camparchScore = horizSlideScore;
         };
 
-        if (vertSlideVal3 < 50) {
+        if (vertSlideVal3 < 0) {
           const vertSlideScore = "L";
           camparchScore = camparchScore + vertSlideScore;
         } else {
@@ -706,34 +710,38 @@ $(document).ready(function () {
         console.log("camparchScore: ", camparchScore)
         switch (camparchScore) {
           case "LL":
-            camparchNotes.push("<p>&#9713 www.</p>");
-            break;
-
-          case "LH":
-            camparchNotes.push("<p>&#9712 xxx.</p>");
+            camparchNotes.push("<p>&#9713 Reduction in resources/budget available.</p>");
+            camparchNotes.push("<p>&#9713 No major change in program fit or execution constraints.</p>");
             break;
 
           case "HL":
-            camparchNotes.push("<p>&#9714 yyy.</p>");
+            camparchNotes.push("<p>&#9714 Reduction in resources/budget available.</p>");
+            camparchNotes.push("<p>&#9714 Program fit for key buyers, or viability of programs planned, has shifted.</p>");
+            break;
+
+          case "LH":
+            camparchNotes.push("<p>&#9712 More resources or budget now available to expand activities.</p>");
+            camparchNotes.push("<p>&#9712 No major change in program fit or execution constraints.</p>");
             break;
 
           case "HH":
-            camparchNotes.push("<p>&#9715 zzz.</p>");
+            camparchNotes.push("<p>&#9715 More resources or budget now available to expand activities.</p>");
+            camparchNotes.push("<p>&#9715 Program fit for key buyers, or viability of programs planned, has shifted.</p>");
             break;
         };
 
-        const campNotes = camparchNotes[camparchNotes.length - 1];
-        console.log("campNotes: ", campNotes);
+        // const campNotes = camparchNotes[camparchNotes.length - 1];
+        // console.log("campNotes: ", campNotes);
 
         //Populate div
-        $('#camp-arch-note1').empty();
-        $('#camp-arch-note1').append(campNotes);
+        $('#camp-arch-notes1').empty();
+        $('#camp-arch-notes1').append(camparchNotes[0]);
 
-        $('#camp-arch-note2').empty();
-        $('#camp-arch-note2').append(pace1Notes);
+        $('#camp-arch-notes2').empty();
+        $('#camp-arch-notes2').append(camparchNotes[1]);
 
-        $('#camp-arch-note3').empty();
-        $('#camp-arch-note3').append(goals1Notes);
+        $('#camp-arch-notes3').empty();
+        $('#camp-arch-notes3').append(camparchNotes[2]);
 
         camparchNotes.length = 0;
         // console.log("camparchNotes:", camparchNotes);
@@ -757,76 +765,57 @@ $(document).ready(function () {
         break;
     };
 
-    // // Render notes for graph 1    
-    // if (horizSlideVal1 > 50) {
-    //   const horizSlideScore = "H";
-    //   buscontextScore = horizSlideScore;
-    // } else {
-    //   const horizSlideScore = "L";
-    //   buscontextScore = horizSlideScore;
-    // };
+    // Render notes for graph 4   
+    if (horizSlideVal4 > 50) {
+      const horizSlideScore = "H";
+      alignexecScore = horizSlideScore;
+    } else {
+      const horizSlideScore = "L";
+      alignexecScore = horizSlideScore;
+    };
 
-    // if (vertSlideVal1 < 50) {
-    //   const vertSlideScore = "L";
-    //   buscontextScore = buscontextScore + vertSlideScore;
-    // } else {
-    //   const vertSlideScore = "H";
-    //   buscontextScore = buscontextScore + vertSlideScore;
-    // };
+    if (vertSlideVal4 < 0) {
+      const vertSlideScore = "L";
+      alignexecScore = alignexecScore + vertSlideScore;
+    } else {
+      const vertSlideScore = "H";
+      alignexecScore = alignexecScore + vertSlideScore;
+    };
 
-    // console.log("buscontextScore: ", buscontextScore)
-    // switch (buscontextScore) {
-    //   case "LL":
-    //     buscontextNotes.push("<p>&#9713 Localized disruption + temporary time frame. Campaign likely still sound; Local level response sufficient.</p>");
-    //     break;
+    console.log("alignexecScore: ", alignexecScore)
+    switch (alignexecScore) {
+      case "LL":
+        alignexecNotes.push("<p>&#9713 aaa.</p>");
+        break;
 
-    //   case "LH":
-    //     buscontextNotes.push("<p>&#9712 Widespread disruption + temporary time frame. Overall campaign likely still sound; Programmatic response required to address market disruption.</p>");
-    //     break;
+      case "LH":
+        alignexecNotes.push("<p>&#9712 bbb.</p>");
+        break;
 
-    //   case "HL":
-    //     buscontextNotes.push("<p>&#9714 Localized disruption + prolonged time frame. Campaign in some markets may require attention; Consider regional adjustments.</p>");
-    //     break;
+      case "HL":
+        alignexecNotes.push("<p>&#9714 ccc.</p>");
+        break;
 
-    //   case "HH":
-    //     buscontextNotes.push("<p>&#9715 Widespread disruption + prolonged time frame. Campaign likely misaligned from market needs; Conduct full campaign review.</p>");
-    //     break;
-    // };
+      case "HH":
+        alignexecNotes.push("<p>&#9715 ddd.</p>");
+        break;
+    };
 
-    // //Load comment for pace slider
-    // if (paceSlideVal1 == 0) {
-    //   pace1Notes = "<p></p>"
-    // } else if (paceSlideVal1 < 50) {
-    //   pace1Notes = "<p> &#9655 Slow to steady pace of change. Gradual adaptation / evolution of campaign advisable. </p>"
-    // } else if (paceSlideVal1 > 49) {
-    //   pace1Notes = "<p> &#9655 &#9655 Rapid change in the campaign environment. Immediate changes to campaign focus required. </p>"
-    // };
-
-    // //Load comment for pace slider
-    // if (goalsSlideVal1 == 0) {
-    //   goals1Notes = "<p></p>"
-    // } else if (goalsSlideVal1 > 0 && goalsSlideVal1 < 25) {
-    //   goals1Notes = "<p> &#9678 Limited impact on business goals. Minor adjustments to campaign may suffice, depending on other criteria. </p>"
-    // } else {
-    //   goals1Notes = "<p> &#9651 Business goals have changed. Campaign goals will also be impacted, along with other campaign elements. </p>"
-    // };
-
-
-    // const notes = buscontextNotes[buscontextNotes.length - 1];
+    // const notes = alignexecNotes[alignexecNotes.length - 1];
     // console.log("notes: ", notes);
 
-    // //Populate div
-    // $('#bus-context-notes1').empty();
-    // $('#bus-context-notes1').append(notes);
+    //Populate div
+    $('#align-exec-notes1').empty();
+    $('#align-exec-notes1').append(alignexecNotes[0]);
 
-    // $('#bus-context-notes2').empty();
-    // $('#bus-context-notes2').append(pace1Notes);
+    $('#align-exec-notes2').empty();
+    $('#align-exec-notes2').append(alignexecNotes[1]);
 
-    // $('#bus-context-notes3').empty();
-    // $('#bus-context-notes3').append(goals1Notes);
+    $('#align-exec-notes3').empty();
+    $('#align-exec-notes3').append(alignexecNotes[2]);
 
-    // buscontextNotes.length = 0;
-    // // console.log("buscontextNotes:", buscontextNotes);
+    alignexecNotes.length = 0;
+    // console.log("buscontextNotes:", buscontextNotes);
 
 
   };
@@ -907,7 +896,18 @@ $(document).ready(function () {
 
 
   // This creates the display object for the Revenue Bubble Chart(s)
-  function renderBubbleChart(chartId, chartData, horizSlideVal, vertSlideVal, radiusSlideVal, graphTitle, xlabelString, ylabelString, suggMin, suggMax, stepSize) {
+  function renderBubbleChart(
+    chartId,
+    chartData,
+    horizSlideVal,
+    vertSlideVal,
+    radiusSlideVal,
+    graphTitle,
+    xlabelString,
+    ylabelString,
+    suggMin,
+    suggMax,
+    stepSize) {
 
     if(radiusSlideVal > 65){
       bubbleColor = 'rgba(255,0,0,0.6)'

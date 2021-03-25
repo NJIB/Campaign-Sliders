@@ -4,6 +4,8 @@ header {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right: 50px; */
+  border-bottom: rgba(255,255,0);
+  border-bottom-width: 50px;
 }
 
 .headerbox {
@@ -21,7 +23,9 @@ header {
     height: 100px;
     width: 100%;
     z-index: 2;
-    border-bottom: darkslategrey;
+    border-bottom: rgba(255,255,0);
+    border-bottom-width: 20px;
+  
   }
 
 nav {
@@ -121,6 +125,10 @@ button.submit {
     border-color: darkslategrey;
     margin: 75px;
     font-size: 16pt;
+}
+
+.commentary_notes{
+  font-size: 16pt;
 }
 
 #bus-context-notes1{

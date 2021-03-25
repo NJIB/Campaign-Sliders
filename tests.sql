@@ -1,5 +1,5 @@
 SHOW TABLES;
 
-DESCRIBE Movies;
+DESCRIBE Campaigns;
 
-SELECT * FROM Movies;
+SELECT * FROM Campaigns;
