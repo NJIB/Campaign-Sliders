@@ -681,7 +681,7 @@ $(document).ready(function () {
     if (horizSlideVal4 > 50) {
       const horizSlideScore = "H";
       alignexecScore = horizSlideScore;
-    } else {
+    } else if (horizSlideVal4 < 50){
       const horizSlideScore = "L";
       alignexecScore = horizSlideScore;
     };
@@ -689,7 +689,7 @@ $(document).ready(function () {
     if (vertSlideVal4 < 0) {
       const vertSlideScore = "L";
       alignexecScore = alignexecScore + vertSlideScore;
-    } else {
+    } else if (vertSlideVal4 > 0) {
       const vertSlideScore = "H";
       alignexecScore = alignexecScore + vertSlideScore;
     };
