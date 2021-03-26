@@ -128,8 +128,8 @@ button.submit {
 }
 
 .spacer-row {
-  border-style: dashed;
-  border-color: darkslategrey;
+  /* border-style: dashed;
+  border-color: darkslategrey; */
   border-top: 50px;
   border-bottom: 50px;
   height: 300px;
