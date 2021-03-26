@@ -697,19 +697,23 @@ $(document).ready(function () {
     console.log("alignexecScore: ", alignexecScore)
     switch (alignexecScore) {
       case "LL":
-        alignexecNotes.push("<p>&#9713 aaa.</p>");
+        alignexecNotes.push("<p>&#9713 Campaign performance expectations now lower.</p>");
+        alignexecNotes.push("<p>&#9713 No major change in time frame for delivery of campaign results.</p>");
         break;
 
       case "LH":
-        alignexecNotes.push("<p>&#9712 bbb.</p>");
+        alignexecNotes.push("<p>&#9712 Campaign performance expectations now higher.</p>");
+        alignexecNotes.push("<p>&#9712 No major change in time frame for delivery of campaign results.</p>");
         break;
 
       case "HL":
-        alignexecNotes.push("<p>&#9714 ccc.</p>");
+        alignexecNotes.push("<p>&#9714 Campaign performance expectations now lower.</p>");
+        alignexecNotes.push("<p>&#9714 Delivery time frame for campaign performance has extended.</p>");
         break;
 
       case "HH":
-        alignexecNotes.push("<p>&#9715 ddd.</p>");
+        alignexecNotes.push("<p>&#9715 Campaign performance expectations now higher.</p>");
+        alignexecNotes.push("<p>&#9715 Delivery time frame for campaign performance has extended.</p>");
         break;
     };
 
