@@ -8,7 +8,7 @@ require('dotenv').config();
 const express = require('express');
 
 // Requiring our models for syncing
-const db = require('./models');
+// const db = require('./models');
 
 // Sets up the Express App
 // =============================================================
@@ -34,16 +34,16 @@ require('./routes/movie-api-routes')(app);
 // Syncing our sequelize models Starting our Express app
 // =============================================================
 async function startup() {
-  const dbOutput = await db.sequelize.sync({force: false});
-  console.log('----------------------------');
-  console.log('DATABASE SERVER CONNECTED');
-  console.group('DATABASE CONFIG');
-  console.table(dbOutput.config);
-  console.groupEnd();
+  // const dbOutput = await db.sequelize.sync({force: false});
+  // console.log('----------------------------');
+  // console.log('DATABASE SERVER CONNECTED');
+  // console.group('DATABASE CONFIG');
+  // console.table(dbOutput.config);
+  // console.groupEnd();
 
-  console.group('DATABASE OPTIONS');
-  console.table(dbOutput.options);
-  console.groupEnd();
+  // console.group('DATABASE OPTIONS');
+  // console.table(dbOutput.options);
+  // console.groupEnd();
 
   await app.listen(PORT);
   console.log('----------------------------');

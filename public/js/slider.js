@@ -118,8 +118,6 @@ $(document).ready(function () {
     ticks_labels: ['Part of a Country/MU', 'Single Country/MU', 'Single Region', 'Multiple Regions', 'Global - All Regions'],
   });
 
-  $("#q1-1").attr("class", "q1");
-
   $("#q1-2").slider({
     min: 0,
     max: 100,
@@ -241,17 +239,17 @@ $(document).ready(function () {
     tooltip_position: 'left'
   });
 
-  $(".slider").each(function (e) {
-    $(e).slider({
-      // value: 50,
-      // orientation: 'vertical',
-      // animate: true,
-      // range: 'min',
-      slide: function (e) {
-        console.log("this.id: ", this.id); //new scope
-      }
-    });
-  });
+  // $(".slider").each(function (e) {
+  //   $(e).slider({
+  //     // value: 50,
+  //     // orientation: 'vertical',
+  //     // animate: true,
+  //     // range: 'min',
+  //     slide: function (e) {
+  //       console.log("this.id: ", this.id); //new scope
+  //     }
+  //   });
+  // });
 
   function handleSliderChange(event) {
     event.preventDefault();
