@@ -1,5 +1,0 @@
-SHOW TABLES;
-
-DESCRIBE Campaigns;
-
-SELECT * FROM Campaigns;

@@ -27,7 +27,7 @@ app.use(express.static('public'));
 // Routes
 // ===============================
 require('./routes/html-routes')(app);
-require('./routes/movie-api-routes')(app);
+// require('./routes/movie-api-routes')(app);
 // require("./call_omdb.js")(app);
 // require("./routes/omdb-api-routes.js")(app);
 
