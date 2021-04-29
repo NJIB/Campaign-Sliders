@@ -71,7 +71,7 @@ button.submit {
 
 .col-title {
   height: 75px;
-  font-size: 16pt;
+  font-size: 14pt;
   font-weight: bold;
   text-align: center;
   margin: 5px;
@@ -132,8 +132,22 @@ button.submit {
   border-color: darkslategrey; */
   border-top: 50px;
   border-bottom: 50px;
-  height: 300px;
+  /* height: 300px; */
+  height: 25px;
   font-size: 16pt;
+}
+
+#settings-btn{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 28pt;
+  vertical-align: middle;
+}
+
+#results-btn{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22pt;
+  vertical-align: middle;
+  text-align: right;
 }
 
 .commentary_notes{
@@ -810,7 +824,7 @@ canvas {
 .section-header {
   font-family: Arial, Helvetica, sans-serif;
   height: 100px;
-  font-size: 28pt;
+  font-size: 24pt;
   font-weight: bold;
   text-align: center;
   margin: 5px;
@@ -832,7 +846,7 @@ canvas {
   .section-header {
     font-family: Arial, Helvetica, sans-serif;
     height: 100px;
-    font-size: 24pt;
+    font-size: 20pt;
     font-weight: bold;
     text-align: center;
     margin: 5px;
@@ -856,7 +870,7 @@ canvas {
   .section-header {
     font-family: Arial, Helvetica, sans-serif;
     height: 50px;
-    font-size: 20pt;
+    font-size: 18pt;
     font-weight: bold;
     text-align: center;
     margin: 5px;

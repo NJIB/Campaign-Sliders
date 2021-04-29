@@ -32,6 +32,8 @@ $(document).ready(function () {
   let buscontextNotes = [];
   let audalignScore = '';
   let audalignNotes = [];
+  let needs2Notes = '';
+  let audalignLink = '';
   let camparchScore = '';
   let camparchNotes = [];
   let alignexecScore = '';
@@ -136,8 +138,10 @@ $(document).ready(function () {
     orientation: 'vertical',
     reversed: true,
     tooltip_position: 'bottom',
-    ticks: [0, 20, 40, 60, 80, 100],
-    ticks_labels: ['Unchanged', 'Evolutionary', 'Moderate', 'Significant', 'Major', 'Catastrophic'],
+    // ticks: [0, 20, 40, 60, 80, 100],
+    // ticks_labels: ['Unchanged', 'Evolutionary', 'Moderate', 'Significant', 'Major', 'Catastrophic'],
+    ticks: [0, 25, 50, 75, 100],
+    ticks_labels: ['Unchanged', 'Evolutionary', 'Moderate', 'Significant', 'Major'],
   });
 
   $("#q1-4").slider({
@@ -317,21 +321,21 @@ $(document).ready(function () {
       }
     });
 
-    $('#q1-4').slider({
-      formatter: function (value) {
-        paceSlideVal1 = value;
-        // console.log("radiusSlideVal1: ", radiusSlideVal1);
-        return value;
-      }
-    });
+    // $('#q1-4').slider({
+    //   formatter: function (value) {
+    //     paceSlideVal1 = value;
+    //     // console.log("radiusSlideVal1: ", radiusSlideVal1);
+    //     return value;
+    //   }
+    // });
 
-    $('#q1-5').slider({
-      formatter: function (value) {
-        goalsSlideVal1 = value;
-        // console.log("radiusSlideVal1: ", radiusSlideVal1);
-        return value;
-      }
-    });
+    // $('#q1-5').slider({
+    //   formatter: function (value) {
+    //     goalsSlideVal1 = value;
+    //     // console.log("radiusSlideVal1: ", radiusSlideVal1);
+    //     return value;
+    //   }
+    // });
 
     $('#q2-1').slider({
       // Shows value on the tooltip
@@ -476,18 +480,18 @@ $(document).ready(function () {
         };
 
         //Load comment for pace slider
-        if (paceSlideVal1 == 0) {
-          pace1Notes = "<p></p>"
-        } else if (paceSlideVal1 < 50) {
-          pace1Notes = "<p> &#9655 Slow to steady pace of change. Gradual adaptation / evolution of campaign advisable. </p>"
-        } else if (paceSlideVal1 > 49) {
-          pace1Notes = "<p> &#9655 &#9655 Rapid change in the campaign environment. Immediate changes to campaign focus required. </p>"
-        };
+        // if (paceSlideVal1 == 0) {
+        //   pace1Notes = "<p></p>"
+        // } else if (paceSlideVal1 < 50) {
+        //   pace1Notes = "<p> &#9655 Slow to steady pace of change. Gradual adaptation / evolution of campaign advisable. </p>"
+        // } else if (paceSlideVal1 > 49) {
+        //   pace1Notes = "<p> &#9655 &#9655 Rapid change in the campaign environment. Immediate changes to campaign focus required. </p>"
+        // };
 
-        //Load comment for pace slider
-        if (goalsSlideVal1 == 0) {
+        //Load comment for radius slider
+        if (radiusSlideVal1 == 0) {
           goals1Notes = "<p></p>"
-        } else if (goalsSlideVal1 > 0 && goalsSlideVal1 < 25) {
+        } else if (radiusSlideVal1 > 0 && radiusSlideVal1 < 25) {
           goals1Notes = "<p> &#9678 Limited impact on business goals. Minor adjustments to campaign may suffice, depending on other criteria. </p>"
         } else {
           goals1Notes = "<p> &#9651 Business goals have changed. Campaign goals will also be impacted, along with other campaign elements. </p>"
@@ -567,6 +571,19 @@ $(document).ready(function () {
             break;
         };
 
+        //Load comment for radius slider
+        if (radiusSlideVal2 == 0) {
+          needs2Notes = "<p></p>"
+        } else if (radiusSlideVal2 > 0 && radiusSlideVal2 < 25) {
+          audalignNotes.push("<p> &#9678 Limited change to buyer needs being addressed. Minor refresh of messaging and value proposition may be required. </p>");
+          needs2Notes = "<p> &#9678 Limited change to buyer needs being addressed. Minor refresh of messaging and value proposition may be required. </p>"
+        } else {
+          needs2Notes = "<p> &#9651 Buyers' needs have shifted. Revisit value proposition elements, to ensure relevance and resonance of campaign messaging. </p>"
+          audalignLink = '<a href="https://client.siriusdecisions.com/research-articles/m/messagingnautilusarc4valueproposition?contenttype=" title="Recommended reading" target="_blank">&#128214 Messaging Nautilus Arc 4: Value Proposition</a>'
+          audalignNotes.push(audalignLink);
+        };
+
+
         // const audNotes = audalignNotes[audalignNotes.length - 1];
         // console.log("audNotes: ", audNotes);
 
@@ -579,6 +596,11 @@ $(document).ready(function () {
 
         $('#aud-align-notes3').empty();
         $('#aud-align-notes3').append(audalignNotes[2]);
+        // $('#aud-align-notes3').append(needs2Notes);
+        // $('#aud-align-notes3').append(audalignLink);
+
+        // $('#aud-align-notes4').empty();
+        // $('#aud-align-notes4').append(audalignLink);
 
         audalignNotes.length = 0;
         // console.log("audalignNotes:", audalignNotes);
@@ -672,65 +694,68 @@ $(document).ready(function () {
           100,
           100
         );
-        break;
+        // break;
+        // };
+
+        console.log("horizSlideVal4: ", horizSlideVal4);
+
+        // Render notes for graph 4   
+        if (horizSlideVal4 > 50) {
+          const horizSlideScore = "H";
+          alignexecScore = horizSlideScore;
+        } else if (horizSlideVal4 < 50) {
+          const horizSlideScore = "L";
+          alignexecScore = horizSlideScore;
+        };
+
+        if (vertSlideVal4 < 0) {
+          const vertSlideScore = "L";
+          alignexecScore = alignexecScore + vertSlideScore;
+        } else if (vertSlideVal4 > 0) {
+          const vertSlideScore = "H";
+          alignexecScore = alignexecScore + vertSlideScore;
+        };
+
+        console.log("alignexecScore: ", alignexecScore)
+        switch (alignexecScore) {
+          case "LL":
+            alignexecNotes.push("<p>&#9713 Campaign performance expectations now lower.</p>");
+            alignexecNotes.push("<p>&#9713 No major change in time frame for delivery of campaign results.</p>");
+            break;
+
+          case "LH":
+            alignexecNotes.push("<p>&#9712 Campaign performance expectations now higher.</p>");
+            alignexecNotes.push("<p>&#9712 No major change in time frame for delivery of campaign results.</p>");
+            break;
+
+          case "HL":
+            alignexecNotes.push("<p>&#9714 Campaign performance expectations now lower.</p>");
+            alignexecNotes.push("<p>&#9714 Delivery time frame for campaign performance has extended.</p>");
+            break;
+
+          case "HH":
+            alignexecNotes.push("<p>&#9715 Campaign performance expectations now higher.</p>");
+            alignexecNotes.push("<p>&#9715 Delivery time frame for campaign performance has extended.</p>");
+            break;
+        };
+
+        // const notes = alignexecNotes[alignexecNotes.length - 1];
+        // console.log("notes: ", notes);
+
+        //Populate div
+        $('#align-exec-notes1').empty();
+        $('#align-exec-notes1').append(alignexecNotes[0]);
+
+        $('#align-exec-notes2').empty();
+        $('#align-exec-notes2').append(alignexecNotes[1]);
+
+        $('#align-exec-notes3').empty();
+        $('#align-exec-notes3').append(alignexecNotes[2]);
+
+        alignexecNotes.length = 0;
+      // console.log("buscontextNotes:", buscontextNotes);
+
     };
-
-    // Render notes for graph 4   
-    if (horizSlideVal4 > 50) {
-      const horizSlideScore = "H";
-      alignexecScore = horizSlideScore;
-    } else if (horizSlideVal4 < 50){
-      const horizSlideScore = "L";
-      alignexecScore = horizSlideScore;
-    };
-
-    if (vertSlideVal4 < 0) {
-      const vertSlideScore = "L";
-      alignexecScore = alignexecScore + vertSlideScore;
-    } else if (vertSlideVal4 > 0) {
-      const vertSlideScore = "H";
-      alignexecScore = alignexecScore + vertSlideScore;
-    };
-
-    console.log("alignexecScore: ", alignexecScore)
-    switch (alignexecScore) {
-      case "LL":
-        alignexecNotes.push("<p>&#9713 Campaign performance expectations now lower.</p>");
-        alignexecNotes.push("<p>&#9713 No major change in time frame for delivery of campaign results.</p>");
-        break;
-
-      case "LH":
-        alignexecNotes.push("<p>&#9712 Campaign performance expectations now higher.</p>");
-        alignexecNotes.push("<p>&#9712 No major change in time frame for delivery of campaign results.</p>");
-        break;
-
-      case "HL":
-        alignexecNotes.push("<p>&#9714 Campaign performance expectations now lower.</p>");
-        alignexecNotes.push("<p>&#9714 Delivery time frame for campaign performance has extended.</p>");
-        break;
-
-      case "HH":
-        alignexecNotes.push("<p>&#9715 Campaign performance expectations now higher.</p>");
-        alignexecNotes.push("<p>&#9715 Delivery time frame for campaign performance has extended.</p>");
-        break;
-    };
-
-    // const notes = alignexecNotes[alignexecNotes.length - 1];
-    // console.log("notes: ", notes);
-
-    //Populate div
-    $('#align-exec-notes1').empty();
-    $('#align-exec-notes1').append(alignexecNotes[0]);
-
-    $('#align-exec-notes2').empty();
-    $('#align-exec-notes2').append(alignexecNotes[1]);
-
-    $('#align-exec-notes3').empty();
-    $('#align-exec-notes3').append(alignexecNotes[2]);
-
-    alignexecNotes.length = 0;
-    // console.log("buscontextNotes:", buscontextNotes);
-
 
   };
 
@@ -823,9 +848,9 @@ $(document).ready(function () {
     suggMax,
     stepSize) {
 
-    if(radiusSlideVal > 65){
+    if (radiusSlideVal > 65) {
       bubbleColor = 'rgba(255,0,0,0.6)'
-    } else if(radiusSlideVal > 35) {
+    } else if (radiusSlideVal > 35) {
       bubbleColor = 'rgba(255,165,0,0.6)'
     }
 
