@@ -56,7 +56,7 @@ button.submit {
 
 .section-header {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 24pt;
+  font-size: 16pt;
   font-weight: bold;
   text-align: center;
   margin: 5px;
@@ -71,7 +71,7 @@ button.submit {
 
 .col-title {
   height: 75px;
-  font-size: 14pt;
+  font-size: 10pt;
   font-weight: bold;
   text-align: center;
   margin: 5px;
@@ -90,8 +90,8 @@ button.submit {
 .col-slider {
   height: 250px;
   padding: 20px;
-  /* font-size: 12pt;
-  font-weight: bold;
+  font-size: 8pt;
+  /*font-weight: bold;
   text-align: justify;
   margin: 5px; */
 }
@@ -124,7 +124,7 @@ button.submit {
     border-style: dashed;
     border-color: darkslategrey;
     margin: 75px;
-    font-size: 16pt;
+    font-size: 12pt;
 }
 
 .spacer-row {
@@ -134,39 +134,39 @@ button.submit {
   border-bottom: 50px;
   /* height: 300px; */
   height: 25px;
-  font-size: 16pt;
+  font-size: 12pt;
 }
 
 #settings-btn{
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 28pt;
+  font-size: 20pt;
   vertical-align: middle;
 }
 
 #results-btn{
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 22pt;
+  font-size: 14pt;
   vertical-align: middle;
   text-align: right;
 }
 
 .commentary_notes{
-  font-size: 16pt;
+  font-size: 12pt;
 }
 
 #bus-context-notes1{
   /* margin-left: 70px; */
-  font-size: 16pt;
+  font-size: 12pt;
 }
 
 #bus-context-notes2{
   /* margin-left: 70px; */
-  font-size: 16pt;
+  font-size: 12pt;
 }
 
 #bus-context-notes3{
   /* margin-left: 70px; */
-  font-size: 16pt;
+  font-size: 12pt;
 }
 
 /* Rounded border */
@@ -271,7 +271,7 @@ header {
   font-family: 'Times New Roman', Times, serif;
   color: white;
   /* font-weight: bold; */
-  font-size: 50px;
+  font-size: 40px;
 }
 
 
@@ -824,7 +824,7 @@ canvas {
 .section-header {
   font-family: Arial, Helvetica, sans-serif;
   height: 100px;
-  font-size: 24pt;
+  font-size: 16pt;
   font-weight: bold;
   text-align: center;
   margin: 5px;
@@ -846,7 +846,7 @@ canvas {
   .section-header {
     font-family: Arial, Helvetica, sans-serif;
     height: 100px;
-    font-size: 20pt;
+    font-size: 16pt;
     font-weight: bold;
     text-align: center;
     margin: 5px;
@@ -870,7 +870,7 @@ canvas {
   .section-header {
     font-family: Arial, Helvetica, sans-serif;
     height: 50px;
-    font-size: 18pt;
+    font-size: 16pt;
     font-weight: bold;
     text-align: center;
     margin: 5px;
