@@ -681,21 +681,19 @@ $(document).ready(function () {
         break;
 
       case ('q4'):
-        renderBubbleChart(
-          '#BubbleChart4',
-          chart1Data,
-          horizSlideVal4,
-          vertSlideVal4,
-          radiusSlideVal4,
-          'Aligned Execution',
-          '-----------------------   TIME FRAME   ---------------------->',
-          '-----------------   CAMPAIGN PERFORMANCE   ---------------->',
-          -100,
-          100,
-          100
-        );
-        // break;
-        // };
+        // renderBubbleChart(
+        //   '#BubbleChart4',
+        //   chart1Data,
+        //   horizSlideVal4,
+        //   vertSlideVal4,
+        //   radiusSlideVal4,
+        //   'Aligned Execution',
+        //   '-----------------------   TIME FRAME   ---------------------->',
+        //   '-----------------   CAMPAIGN PERFORMANCE   ---------------->',
+        //   -100,
+        //   100,
+        //   100
+        // );
 
         console.log("horizSlideVal4: ", horizSlideVal4);
 
@@ -721,23 +719,48 @@ $(document).ready(function () {
           case "LL":
             alignexecNotes.push("<p>&#9713 Campaign performance expectations now lower.</p>");
             alignexecNotes.push("<p>&#9713 No major change in time frame for delivery of campaign results.</p>");
+            $('#BubbleChart4').removeClass('BubbleChart4new');
+            $('#BubbleChart4').addClass('BubbleChart4');
             break;
 
           case "LH":
             alignexecNotes.push("<p>&#9712 Campaign performance expectations now higher.</p>");
             alignexecNotes.push("<p>&#9712 No major change in time frame for delivery of campaign results.</p>");
+            $('#BubbleChart4').removeClass('BubbleChart4');
+            $('#BubbleChart4').addClass('BubbleChart4new');
+            console.log("ALT GRAPHIC!")
             break;
 
           case "HL":
             alignexecNotes.push("<p>&#9714 Campaign performance expectations now lower.</p>");
             alignexecNotes.push("<p>&#9714 Delivery time frame for campaign performance has extended.</p>");
+            $('#BubbleChart4').removeClass('BubbleChart4new');
+            $('#BubbleChart4').addClass('BubbleChart4');
             break;
 
           case "HH":
             alignexecNotes.push("<p>&#9715 Campaign performance expectations now higher.</p>");
             alignexecNotes.push("<p>&#9715 Delivery time frame for campaign performance has extended.</p>");
+            $('#BubbleChart4').removeClass('BubbleChart4');
+            $('#BubbleChart4').addClass('BubbleChart4new');
+            console.log("ALT GRAPHIC!")
             break;
         };
+
+        renderBubbleChart(
+          '#BubbleChart4',
+          chart1Data,
+          horizSlideVal4,
+          vertSlideVal4,
+          radiusSlideVal4,
+          'Aligned Execution',
+          '-----------------------   TIME FRAME   ---------------------->',
+          '-----------------   CAMPAIGN PERFORMANCE   ---------------->',
+          -100,
+          100,
+          100
+        );
+
 
         // const notes = alignexecNotes[alignexecNotes.length - 1];
         // console.log("notes: ", notes);
@@ -878,6 +901,9 @@ $(document).ready(function () {
               display: false,
               labelString: xlabelString,
             },
+            gridLines: {
+              display: false,
+            },
             type: 'linear',
             position: 'bottom',
             ticks: {
@@ -892,6 +918,9 @@ $(document).ready(function () {
             scaleLabel: {
               display: false,
               labelString: ylabelString,
+            },
+            gridLines: {
+              display: false,
             },
             ticks: {
               // labels: ['Part of a Country', 'Single Country/MU', 'Single Region', 'Multiple Regions', 'Global'],

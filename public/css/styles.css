@@ -12,7 +12,7 @@ header {
   /* background-color: #B0C4DE; */
   background-color: #00563F;
   padding-left: 50px;
-    padding-top: 25px;
+    /* padding-top: 10px; */
     padding-bottom: auto;
     padding-right: 50px;
     margin: auto;
@@ -20,7 +20,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100px;
+    height: 60px;
     width: 100%;
     z-index: 2;
     border-bottom: rgba(255,255,0);
@@ -50,8 +50,10 @@ button.submit {
   border-color: darkslategrey;
   padding-top: 0px;
   padding-bottom: 0px;
-  padding-left: 75px;
-  padding-right: 75px;
+  /* padding-left: 75px;
+  padding-right: 75px; */
+    padding-left: 35px;
+  padding-right: 35px;
 }
 
 .section-header {
@@ -140,12 +142,15 @@ button.submit {
 #settings-btn{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20pt;
+  padding-top: 10px;
   vertical-align: middle;
 }
 
 #results-btn{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14pt;
+  padding-top: 15px;
+  margin: auto;
   vertical-align: middle;
   text-align: right;
 }
@@ -260,12 +265,12 @@ button.edit {
 
 header {
   position: relative;
-  height: 100px;
+  height: 60px;
   width: 100%;
   margin-bottom: 50px;
   text-align: left;
   padding-left: 50px;
-  padding-top: 20px;
+  padding-top: 10px;
   background-color: lightsteelblue;
   /* font-family: 'Courier New', Courier, monospace; */
   font-family: 'Times New Roman', Times, serif;
@@ -281,7 +286,7 @@ footer {
   width: 100%;
   margin-top: 100px;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 10px;
   background-color: lightgray;
   font-family: 'Courier New', Courier, monospace;
 }
@@ -452,6 +457,7 @@ text-align: center;
 
 .slider.slider-vertical .slider-tick-label-container .slider-tick-label {
   padding-left: 4px;
+  font-size: 7pt;
 }
 
 .slider.slider-vertical.slider-rtl .slider-track {
@@ -812,11 +818,13 @@ canvas {
   background-size: 100%;
   background-repeat: no-repeat;
 }
+
 .BubbleChart4new{
   height: 350px;
   width: 350px;  
   /* background-image: url(../images/Graph4_Annotations.jpg); */
-  background-image: url(../images/AlignExec.png);
+  /* background-image: url(../images/AlignExec2.png); */
+  background-image: url(../images/AlignExec2.png);
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -834,8 +842,8 @@ canvas {
   .container{width: 95%;}
   .container{height: 2000px}
   .container{padding: 5px;}
-  .container{margin: 100px 20px 20px 20px;}
-  header{height: 100px;} 
+  .container{margin: 50px 20px 20px 20px;}
+  header{height: 60px;} 
   canvas{
     /* height: 90%;
     width: 90%; */
@@ -858,8 +866,8 @@ canvas {
   .container{width: 95%;}
   .container{height: 2000px}
   .container{padding: 5px;}
-  .container{margin: 100px 20px 20px 20px;}
-  header{height: 100px;} 
+  .container{margin: 50px 20px 20px 20px;}
+  header{height: 60px;} 
   canvas{
     height: 400px;
     width: 400px;
@@ -881,7 +889,7 @@ canvas {
   .container{width: 580px;}
   .container{height: 2000px}
   .container{padding: 5px;}
-  .container{margin: 70px 20px 20px 20px;}
+  .container{margin: 50px 20px 20px 20px;}
   header{
     height: 60px;
     margin-bottom: 20px;
