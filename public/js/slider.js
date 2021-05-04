@@ -52,7 +52,16 @@ $(document).ready(function () {
   // Adding event listeners to the form to create a new object, and the button to delete
   // an movie
   $(document).on('change', '.slider', handleSliderChange);
+  
+  // $('button','#results-btn').on('click', checkBackLater());
+  $("#results-btn").click(function() {
+    alert( "Thanks for clicking.  Not working just yet but will be soon!" );
+  });
 
+  $("#settings-btn").click(function() {
+    alert( "Thanks for clicking.  Not working just yet but will be soon!" );
+  });
+  
   renderBubbleChart(
     '#BubbleChart1',
     chart1Data,
@@ -254,6 +263,10 @@ $(document).ready(function () {
   //     }
   //   });
   // });
+
+  function checkBackLater() {
+    alert("Thanks for clicking me.  I'm not working right now but will be soon!");
+  };
 
   function handleSliderChange(event) {
     event.preventDefault();
